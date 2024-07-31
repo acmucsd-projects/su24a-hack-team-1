@@ -1,0 +1,113 @@
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Overused Grotesk";
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+/* Main Container */
+#main {
+    width: 100%;
+}
+
+/* Hero Section */
+#hero {
+    color: black;
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Navigation Bar */
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    width: 100%;
+}
+#nav a {
+    color: black;
+    text-decoration: none;
+    font-size: 35px;
+
+}
+
+#nav a .text-purple{
+    color: #D3C2F8;
+}
+
+
+#nav p{
+    font-size: 30px;
+}
+
+
+/* move the header elements to the left */
+.left {
+    /* background-color: red; */
+    padding-left: 60px;
+}
+
+/* Header */
+#header {
+    margin-top: 90px;
+}
+
+#header h1{
+    /* margin-left: 50px; */
+    line-height: 1.5;
+    font-size: 5.5vw;
+    font-family: "Overused Grotesk Light";
+
+}
+
+#header .text-purple{
+    color: #D3C2F8;
+    font-family: "Overused Grotesk Light";
+}
+
+#blocktext {
+    width: fit-content;
+}
+
+
+#blocktext #header2{
+    margin-left: 110px;
+}
+
+
+.left button {
+    padding: 10px 40px;
+    margin-left: 15px;
+    font-size: 18px;
+    margin-top: 50px;
+    border: 1;
+    border-radius: 8px;
+    /* display: flex; */
+    /* align-items: center; */
+}
+
+.buttons {
+    /* background-color: blue; */
+    margin-left: 25vh;
+}
+
+#btn-sign-up {
+    font-family: "Overused Grotesk Light";
+    color: #fff;
+    background: black;
+}
+
+#btn-log-in {
+    font-family: "Overused Grotesk Medium";
+    color: black;
+    background: #E4DFF3;
+}
