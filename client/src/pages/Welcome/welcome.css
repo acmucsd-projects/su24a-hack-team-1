@@ -91,6 +91,7 @@ html, body {
     margin-top: 50px;
     border: 1;
     border-radius: 8px;
+    
     /* display: flex; */
     /* align-items: center; */
 }
@@ -98,16 +99,35 @@ html, body {
 .buttons {
     /* background-color: blue; */
     margin-left: 25vh;
+    
 }
 
 #btn-sign-up {
     font-family: "Overused Grotesk Light";
     color: #fff;
     background: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
 }
+
+#btn-log-in:hover {
+    cursor: pointer;
+}
+
 
 #btn-log-in {
     font-family: "Overused Grotesk Medium";
     color: black;
     background: #E4DFF3;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+#btn-log-in:hover {
+    background-color: black;
+    color: white;
+    font-family: "Overused Grotesk Light" ;
+    cursor: pointer;
 }
