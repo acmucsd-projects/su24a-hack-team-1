@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const userInterestSchema = new Schema({
     user_id: {
-        type: Number,
+        type: String,
         required: true
     },
     interest: {

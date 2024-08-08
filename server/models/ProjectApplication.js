@@ -8,7 +8,7 @@ const projectApplicationSchema = new Schema({
         unique: true
     },
     user_id: {
-        type: Number,
+        type: String,
         required: true
     },
     project_id: {
@@ -26,6 +26,6 @@ const projectApplicationSchema = new Schema({
     }
 }, { timestamps: true });
 
-const Profile = mongoose.model('Profile', profileSchema);
+const ProjectApplication = mongoose.model('ProjectApplication', projectApplicationSchema);
 
-module.exports = Profile;
+module.exports = ProjectApplication;

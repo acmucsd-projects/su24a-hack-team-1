@@ -7,7 +7,7 @@ const projectParticipantSchema = new Schema({
         required: true
     },
     user_id: {
-        type: Number,
+        type: String,
         required: true
     },
     role: {
@@ -15,6 +15,6 @@ const projectParticipantSchema = new Schema({
     },
 }, { timestamps: true });
 
-const Profile = mongoose.model('Profile', profileSchema);
+const ProjectParticipant = mongoose.model('ProjectParticipant', projectParticipantSchema);
 
-module.exports = Profile;
+module.exports = ProjectParticipant;

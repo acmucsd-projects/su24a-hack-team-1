@@ -8,7 +8,7 @@ const projectSchema = new Schema({
         unique: true
     },
     leader_id: {
-        type: Number,
+        type: String,
         required: true
     },
     title: {
@@ -28,6 +28,6 @@ const projectSchema = new Schema({
     }
 }, { timestamps: true });
 
-const Profile = mongoose.model('Profile', profileSchema);
+const Project = mongoose.model('Project', projectSchema);
 
-module.exports = Profile;
+module.exports = Project;
