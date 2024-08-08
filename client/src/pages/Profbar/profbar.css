@@ -2,7 +2,7 @@ html, body {
     width: 100%;
     height: 100%;
   }
-  .sidebar{
+  .s{
     color:rgb(255, 255, 255); 
     display:flex;
     justify-content: left;

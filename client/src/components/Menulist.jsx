@@ -11,7 +11,7 @@ import "./menulist.css"
 const MenuList = () => {
   return (
     
-    <Menu theme ="dark" mode = "inline" claaName= "menu-bar">
+    <Menu theme ="dark" mode = "inline" className= "menu-bar">
       <Menu.Item key = " home " icon= { <TiHome size={35} style={{ fill: '#D3C2F8' }} /> }> Home 
       </Menu.Item>
       <Menu.Item key = " messages " icon= { <IoNotifications size={35} style={{ fill: '#D3C2F8' }} /> }> Notifications </Menu.Item>

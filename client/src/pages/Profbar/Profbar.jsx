@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Layout } from 'antd';
-import MenuList from '../../components/Menulist';
+import MenuList from '../../components/Mlist';
 
 const{Header, Sider} = Layout;
-function Navbar() {
+function Profbar() {
   return (
     <Layout>
-      <Sider className="sidebar">
+      <Sider className="sbar">
         
       <div id="main">
 
@@ -19,4 +19,4 @@ function Navbar() {
     </Layout>
   );
 }
-export default Navbar;
+export default Profbar;

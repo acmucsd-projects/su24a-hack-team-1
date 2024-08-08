@@ -4,6 +4,8 @@ import Welcome from './pages/Welcome/Welcome'
 import Login from './pages/Login/Login';
 import Postings from './pages/Postings/Postings';
 import Navbar from './pages/Navbar/Navbar';
+import Profbar from './pages/Profbar/Profbar';
+
 
 const routes = (
   <Router>
@@ -12,6 +14,7 @@ const routes = (
       <Route path="/Login" exact element = {<Login/>} />
       <Route path="/Postings" exact element = {<Postings/>} />
       <Route path="/Navbar" exact element = {<Navbar/>} />
+      <Route path="/Profbar" exact element = {<Profbar/>} />
     </Routes>
   </Router>
 );
