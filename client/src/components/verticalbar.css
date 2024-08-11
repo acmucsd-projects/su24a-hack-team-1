@@ -1,0 +1,63 @@
+.vertical-navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 240px; 
+    height: 100vh;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px; /* adjust spacing from the top */
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-bottom: 40px; /* spacing below the logo */
+    margin-right: 90px;
+  }
+  
+  .logo-text {
+    margin-left: 15px;
+    font-size: 30px;
+  }
+  
+  .logo-text a{
+    text-decoration: none;
+  }
+  
+  .logo-purple {
+    color: #D3C2F8;
+  }
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 20px;
+    
+  }
+  
+  .navbar-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    width: 75%; /* background highlight width for link elements */
+    box-sizing: border-box; /* include padding in width calculation */
+    transition: background-color 0.2s ease; /* transition for background color */
+  }
+  
+  .navbar-link:hover {
+    background-color: #1B1A1A;
+  }
+  
+  .navbar-text {
+    margin-left: 14px; /* spacing between icon and text */
+    font-size: 20px;
+  }
+  

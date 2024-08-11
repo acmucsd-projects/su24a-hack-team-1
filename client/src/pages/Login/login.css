@@ -1,11 +1,9 @@
-.login-text {
-    font-family: "Quicksand";
-}
 * {
     margin: 0;
     padding: 0;
-    font-family: "Overused Grotesk";
+    font-family: "Overused Grotesk", sans-serif;
     box-sizing: border-box;
+    /* border: 2px solid red; */
 }
 
 html, body {
@@ -13,127 +11,85 @@ html, body {
     height: 100%;
 }
 
-/* Main Container */
-#main {
-    width: 100%;
-}
-
-/* Hero Section */
-#hero {
-    color: black;
+#hero-login {
     background-color: white;
     width: 100%;
     height: 100vh;
 }
 
-/* Navigation Bar */
-#nav {
+/* Main Container */
+#main-login {
+    width: 100%;
+}
+
+.center-login {
+    margin-top: 27vh;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    width: 100%;
-}
-#nav a {
-    color: black;
-    text-decoration: none;
-    font-size: 35px;
-
-}
-
-#nav a .text-purple{
-    color: #D3C2F8;
-    
-}
-
-
-#nav p{
-    font-size: 30px;
-}
-
-
-/* move the header elements to the left */
-.center {
-    /* background-color: red; */
-    padding-left: 360px;
-}
-
-/* Header */
-#header {
-    margin-top: 90px;
-}
-
-#header h1{
-    /* margin-left: 50px; */
-    line-height: 1.5;
-    font-size: 5.5vw;
-    font-family: "Overused Grotesk Light";
-
-}
-
-#header .text-p{
-    color: #D3C2F8;
-    font-family: "Overused Grotesk Light";
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-left: 100px;
+    height: 200px;
 }
-#header .desc{
-    color: #000000;
-    font-family: "Overused Grotesk Light";
+
+#header-login h1 {
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-left: 175px;
+    line-height: 1.25;
+    font-size: 6.5vw;
+    font-family: "Overused Grotesk Light", sans-serif;
 }
 
-#blocktext {
-    width: fit-content;
+#text-dot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: "Overused Grotesk Light", sans-serif;
 }
 
-
-#blocktext #header2{
-    margin-left: 110px;
+#text-dot .text-p { 
+    color: #D3C2F8;
+    font-family: "Overused Grotesk Light", sans-serif;
 }
 
+#blocktext-header #header3 {
+    margin-top: 40px;
+    color: #656565;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+    width: 100%;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: "Overused Grotesk Light", sans-serif;
+}
 
-.center button {
-    padding: 10px 40px;
-    margin-left: 25px;
+.bttns-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.bttns-login #btn-cont {
+    padding: 10px 30px;
+    margin-left: 15px;
     font-size: 18px;
     margin-top: 50px;
-    border: 1;
+    border: 1px solid black; /* Adjusted border property */
     border-radius: 8px;
-    
-    /* display: flex; */
-    /* align-items: center; */
-}
-
-.bttns {
-    /* background-color: blue; */
-    margin-left: 25vh;
-    
-}
-
-
-#btn-cont:hover {
-    cursor: pointer;
-}
-
-
-#btn-cont {
-    font-family: "Overused Grotesk Medium";
-    color: black;
-    background: #ffffff;
+    font-family: "Overused Grotesk Light", sans-serif;
+    color: white;
+    background: black;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-
-#btn-cont:hover {
-    background-color: black;
-    color: white;
-    font-family: "Overused Grotesk Light" ;
-    cursor: pointer;
+.bttns-login #btn-cont:hover {
+    background-color: #E4DFF3;
+    color: black;
+    font-family: "Overused Grotesk", sans-serif;
 }

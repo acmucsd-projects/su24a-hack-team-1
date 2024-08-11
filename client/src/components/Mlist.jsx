@@ -1,23 +1,30 @@
-import { Menu } from 'antd';
-import React from 'react'
-import "./mlist.css"
+import React from 'react';
+import './verticalbar.css';
 
-
-const MenuList = () => {
+const Mlist = () => {
   return (
-    
-    <Menu theme ="dark" mode = "inline" className= "menu-bar">
-      <Menu.Item key = " name " > 1. Name
-      </Menu.Item>
-      <Menu.Item key = " resume "> 2. Resume Upload </Menu.Item>
-      <Menu.Item key = " website "> 3. Website </Menu.Item>
-      <Menu.Item key = " bio "> 4. Bio/Interests </Menu.Item>
-      <Menu.Item key = " skills "> 5. Skills </Menu.Item>
-
-    </Menu>
-    
-
+    <nav className="vertical-navbar">
+      <div className="navbar-logo">
+      <span className="logo-text">
+          Project<span className="logo-purple">Up</span>
+        </span>
+      </div>
+      <div className="navbar-links">
+        <a href="#name" className="navbar-link">
+          <span className="navbar-text">1. Name</span>
+        </a>
+        <a href="#resume-upload" className="navbar-link">
+          <span className="navbar-text">2. Resume Upload</span>
+        </a>
+        <a href="#website" className="navbar-link">
+          <span className="navbar-text">3. Website</span>
+        </a>
+        <a href="#bio" className="navbar-link">
+          <span className="navbar-text">4. Bio/Interests</span>
+        </a>
+      </div>
+    </nav>
   );
 };
 
-export default MenuList;
+export default Mlist;

@@ -1,28 +1,55 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import Welcome from './pages/Welcome/Welcome'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from 'framer-motion';
+import Welcome from './pages/Welcome/Welcome';
 import Login from './pages/Login/Login';
 import Postings from './pages/Postings/Postings';
 import Navbar from './pages/Navbar/Navbar';
 import Profbar from './pages/Profbar/Profbar';
-
-
-const routes = (
-  <Router>
-    <Routes>
-      <Route path="/" exact element = {<Welcome />} />
-      <Route path="/Login" exact element = {<Login/>} />
-      <Route path="/Postings" exact element = {<Postings/>} />
-      <Route path="/Navbar" exact element = {<Navbar/>} />
-      <Route path="/Profbar" exact element = {<Profbar/>} />
-    </Routes>
-  </Router>
-);
+import TopNavBar from './components/TopNavBar';
 
 function App() {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  // Define the routes where you want to display the TopNavBar and animation
+  const withTopNavBar = ["/", "/Login"];
+
   return (
-  <div>{routes}</div>
-  )
+    <>
+      {withTopNavBar.includes(currentPath) && <TopNavBar />}
+      <AnimatePresence>
+        {withTopNavBar.includes(currentPath) ? (
+          <motion.div
+            key={currentPath}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Welcome />} />
+              <Route path="/Login" element={<Login />} />
+            </Routes>
+          </motion.div>
+        ) : (
+          <Routes location={location} key={location.pathname}>
+            <Route path="/Postings" element={<Postings />} />
+            <Route path="/Navbar" element={<Navbar />} />
+            <Route path="/Profbar" element={<Profbar />} />
+          </Routes>
+        )}
+      </AnimatePresence>
+    </>
+  );
 }
 
-export default App
+function Root() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
+}
+
+export default Root;

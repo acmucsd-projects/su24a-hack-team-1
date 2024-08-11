@@ -1,22 +1,23 @@
-import { useState } from 'react';
-import { Layout } from 'antd';
-import MenuList from '../../components/Menulist';
+import React from "react";
+import VerticalNavbar from "../../components/VerticalNavbar";
+import Mlist from "../../components/Mlist";
+import "./navbar.css"
 
-const{Header, Sider} = Layout;
+
 function Navbar() {
   return (
-    <Layout>
-      <Sider className="sidebar">
-        
-      <div id="main">
+    <>
+      <div className="App">
+        <VerticalNavbar />
+        {/* Main content */}
+        <div className="main-content">
+          <h1>Welcome to My App</h1>
+          {/* Other components and content */}
+        </div>
+      </div>
 
-          <div id="nav">
-            <a href="#">Project<span className="text-purple">Up</span></a>
-          </div>
-          </div>
-        <MenuList/>
-      </Sider>
-    </Layout>
-  );
+    </>
+  )
 }
-export default Navbar;
+
+export default Navbar
