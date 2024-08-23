@@ -6,10 +6,14 @@ const logger = require('morgan');
 const mangoose = require('mongoose');
 const dotenv = require("dotenv");
 dotenv.config();
+const PORT = process.env.PORT || 4000;
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-
+const homeRouter = require('./routes/home');
+const loginRouter = require('./routes/login');
+const notificationRouter = require('./routes/notification');
+const cors = require('cors');
 const app = express();
 
 // view engine setup
@@ -24,11 +28,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/home', homeRouter);
+app.use('/login', loginRouter);
+app.use('/notification', notificationRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+// Use the cors middleware
+app.use(cors({
+  origin: 'http://localhost:5173', // Allow your frontend's origin
+  credentials: true // Allow cookies or other credentials
+}));
 
 // Connect to MongoDB
 mangoose.connect(process.env.DATABASE_URL)

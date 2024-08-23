@@ -1,12 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from 'framer-motion';
-import Welcome from './pages/Welcome/Welcome';
+import Welcome from './pages/Welcome/Welcome'
 import Login from './pages/Login/Login';
+import Signup from './pages/Login/Signup';
 import Postings from './pages/Postings/Postings';
 import Navbar from './pages/Navbar/Navbar';
 import Profbar from './pages/Profbar/Profbar';
 import TopNavBar from './components/TopNavBar';
+import FontFaceObserver from 'fontfaceobserver';
+
 
 function App() {
   const location = useLocation();
@@ -14,6 +17,17 @@ function App() {
 
   // Define the routes where you want to display the TopNavBar and animation
   const withTopNavBar = ["/", "/Login"];
+  useEffect(() => {
+    const font = new FontFaceObserver('Overused Grotesk');
+    
+    font.load().then(() => {
+      console.log('Overused Grotesk has loaded.');
+      document.documentElement.classList.add('font-loaded');
+    }).catch(() => {
+      console.log('Overused Grotesk failed to load.');
+      document.documentElement.classList.add('font-failed');
+    });
+  }, []);
 
   return (
     <>

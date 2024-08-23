@@ -11,3 +11,9 @@
     url("../fonts/OverusedGrotesk-VF.woff2") format("woff2-variations");
   font-weight: 300 900;
 }
+
+@font-face {
+  font-family: "Overused Grotesk Light";
+  src: url("../fonts/OverusedGrotesk-Light.woff2") format("woff2");
+  font-weight: 300;
+}

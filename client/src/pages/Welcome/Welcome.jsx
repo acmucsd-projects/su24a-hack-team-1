@@ -1,6 +1,6 @@
 import React from 'react';
-import './welcome.css';
 import { useNavigate } from 'react-router-dom';
+import './welcome.css';
 import { motion } from "framer-motion"
 
 
@@ -8,8 +8,8 @@ import { motion } from "framer-motion"
 function Welcome() {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate('/Login'); // Navigate to the Login page
+  const handleClick = (route) => {
+    navigate(route); // Navigate to the Login page
   };
 
   return (
@@ -24,8 +24,8 @@ function Welcome() {
                   <h1 id="header2">Through <span className="text-purple">Projects</span>.</h1>
                 </div>
                 <div className="buttons">
-                  <button id="btn-sign-up" onClick={handleClick}>Sign up</button>
-                  <button id="btn-log-in" onClick={handleClick}>Log in</button>
+                  <button id="btn-sign-up" onClick={() => handleClick('/Login')}>Sign up</button>
+                  <button id="btn-log-in" onClick={() => handleClick('/Login')}>Log in</button>
                 </div>
               </div>
             </div>
