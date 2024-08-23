@@ -16,6 +16,9 @@ const notificationRouter = require('./routes/notification');
 const cors = require('cors');
 const app = express();
 
+app.use(cors());
+app.use(express.json());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -36,12 +39,6 @@ app.use('/notification', notificationRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-// Use the cors middleware
-app.use(cors({
-  origin: 'http://localhost:5173', // Allow your frontend's origin
-  credentials: true // Allow cookies or other credentials
-}));
 
 // Connect to MongoDB
 mangoose.connect(process.env.DATABASE_URL)
