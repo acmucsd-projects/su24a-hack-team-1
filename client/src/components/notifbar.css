@@ -1,0 +1,32 @@
+.notifbar {
+    position: fixed;
+    top: 0;
+    left: 240px; /* Start just to the right of the VerticalNavbar */
+    width: 0; /* Initially hidden */
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    overflow: hidden; /* Hide content until opened */
+    transition: width 0.3s ease; /* Animate the width change */
+    z-index: 999; /* Ensure it appears above the main content */
+  }
+  
+  .notifbar.open {
+    width: 300px; /* Extend width when open */
+  }
+  
+  .notifbar-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .notifbar-content {
+    padding: 20px;
+  }
+  

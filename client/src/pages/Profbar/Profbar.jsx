@@ -1,22 +1,23 @@
-import { useState } from 'react';
-import { Layout } from 'antd';
-import MenuList from '../../components/Mlist';
+import React from "react";
+import Mlist from "../../components/Mlist";
+import ProfVNavBar from "../../components/ProfVNavBar";
+import "./profbar.css"
 
-const{Header, Sider} = Layout;
+
 function Profbar() {
   return (
-    <Layout>
-      <Sider className="sbar">
-        
-      <div id="main">
+    <>
+      <div className="ProfApp">
+      <ProfVNavBar />
+        {/* Main content */}
+        <div className="main">
+          <h1>Welcome to My App</h1>
+          {/* Other components and content */}
+        </div>
+      </div>
 
-          <div id="nav">
-            <a href="#">Project<span className="text-purple">Up</span></a>
-          </div>
-          </div>
-        <MenuList/>
-      </Sider>
-    </Layout>
-  );
+    </>
+  )
 }
+
 export default Profbar;
