@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Overused Grotesk";
+    box-sizing: border-box;
+    /*border: 2px solid red;*/
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+/*.image{
+    /*display:flex;
+    /*flex-direction: row;
+    /*border: 10px ;
+    /*height: 90vh;
+    /*padding: 0px;
+    /*flex-wrap:wrap;
+    /*align-content: flex-start;
+    /*column-gap:2em;
+    /*row-gap:2em;
+
+
+}*/
+.left{
+    margin-left: 355px;
+    font-size: 20px;
+}
+.wrapper{
+    margin: 20px auto;
+    width: 92%;
+}
+.text-box {
+    font-size: 20px;
+}
+.text-box h3{
+    align-items: center;
+}
+.text-box p{
+    font-size: 15px;
+}
+#box1{
+    margin-left: 340px;
+    background-color: black;
+    align-self:start;
+    width: 520px;
+    height: 520px;
+    float: left;
+    border-radius: 10px;
+    margin-right: 30px;
+}
+#box2{
+    background-color: #E3E8EC;
+    align-self:start;
+    width: 510px;
+    height: 30px;
+    float: left;
+    border-radius: 10px;
+    margin-right: 15px;
+    font-size: 20px;
+    text-align: center;
+
+}
+
+.buttons {
+    /* background-color: blue; */
+    margin-top: 38vh;
+    margin-left: 412px;
+    padding: 1px 1px;
+}
+
+#btn-yes {
+    border: none;
+    width: 55px;
+    height: 55px;    
+    margin-right: 407px;
+    font-family: "Overused Grotesk Light";
+    color: black;
+    background: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+}
+.check-yes{
+    color: black;
+    background-color: white;
+}
+.check-yes:hover {
+    /*background-color: #B7DE8F;*/
+    color: #B7DE87;
+    cursor: pointer;
+}
+/*#btn-no:hover {
+    cursor: pointer;
+}*/
+
+.check-no:hover{
+    color: red;
+    cursor: pointer;
+}
+#btn-no {
+    width: 55px;
+    height: 55px;    
+    border: none;
+    font-family: "Overused Grotesk Medium";
+    color: black;
+    background: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.bottom-button {
+    margin-top: 3vh;
+    /*margin-left: 400px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110%;
+}
+#activity-btn {
+    padding: 10px 600px;
+    margin-left: 15px;
+    font-size: 18px;
+    margin-top: 50px;
+    border: 1px solid black; /* Adjusted border property */
+    border-radius: 8px;
+    font-family: "Overused Grotesk Light", sans-serif;
+    color: white;
+    background: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+#activity-btn:hover{
+    background-color: #E4DFF3;
+    color: black;
+    font-family: "Overused Grotesk", sans-serif;
+}
+.image{
+    margin-top: 25vh;
+    justify-content: center;
+    align-items: center;
+}
+.testing-text {
+    margin-top: 4vh;
+    padding: 1px 200px;
+    align-self:start;
+}
