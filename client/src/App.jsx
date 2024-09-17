@@ -10,7 +10,6 @@ import Profbar from './pages/Profbar/Profbar';
 import TopNavBar from './components/TopNavBar';
 import FontFaceObserver from 'fontfaceobserver';
 
-
 function App() {
   const location = useLocation();
   const currentPath = location.pathname;

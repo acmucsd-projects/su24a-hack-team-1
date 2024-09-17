@@ -1,85 +1,68 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
+import ReactDOM from 'react-dom/client'
 import "./login.css"
-import { useDispatch } from "react-redux";
-import { FcGoogle } from "react-icons/fc";
-import useFetch from "../../hooks/useFetch";
+import axios from "axios";
 
-function Login() {
-    const [userInfo, setUserInfo] = useState(null);
-    const url = process.env.REACT_APP_BACKEND_URL;
-    const { handleGoogle, loading, error } = useFetch(url);
-    const navigate = useNavigate();
+export default function Login() {
+  const [email, setEmail] = useState('');
+  const navigate = useNavigate();
 
-    const handleGoogleCallback = (response) => {
-        handleGoogle(response).then(user => {
-            setUserInfo(user);
-            localStorage.setItem('user', JSON.stringify(user));
-        }).catch(err => console.error('Authentication Error:', err));
-    };
-
-    useEffect(() => {
-        const storedUser = JSON.parse(localStorage.getItem('user'));
-        console.log(storedUser);
-        if (storedUser) {
-            setUserInfo(storedUser);  // Set user info if already logged in
-        }
-    }, []);
-
-    useEffect(() => {
-        /* global google */
-        google.accounts.id.initialize({
-            client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-            callback: handleGoogleCallback,
-        });
-
-        google.accounts.id.renderButton(document.getElementById("loginDiv"), {
-            theme: "filled_black",
-            text: "signin_with",
-            shape: "pill",
-        });
-    }, [handleGoogleCallback]);
-
-    
-
-    // Handle Logout
-    const handleLogout = () => {
-        localStorage.removeItem('user'); 
-        setUserInfo(null); 
-    };
-
-
-  
-    return (
-      <div id="main-login">
-        <div id="hero-login">
-          <div className="center-login">
-            <div id="header-login">
-              <h1>Plan, Post, & Produce</h1>
-              <div id="blocktext-header">
-                <div id="text-dot">
-                  <h1 id="header2"><span className="text-p">Projects</span>.</h1>
-                </div>
-                <h2 id="header3"><span className="desc">Discover Your Community Now.</span></h2>
-            </div>
-            <div className="bttns-login">
-              {/* <button id="btn-cont" onClick={handleClick}>
-                <FcGoogle style={{ paddingTop: "4px", marginRight: '8px' }} /> Continue with Google
-              </button> */}
-                {error && <p style={{ color: "red" }}>{error}</p>}
-                {!userInfo ? (<div id="loginDiv">Loading....</div>) : (
-                    <div>
-                        <p>Welcome, {userInfo.name}</p>
-                        <button id="btn-cont" onClick={handleLogout}>Logout</button>
-                    </div>
-                )}
+  const handleLogin = async (e) => {
+    // Make a request to your server to "login"
+    e.preventDefault()
+    try {
+      console.log('email:', email);
+      const response = await axios.post('http://localhost:3001/api/login', { 
+        email: email,
+         name: "", 
+         wesbite: "", 
+         biography: "" 
+      });
+      console.log(response.data);
+      if (response.status === 200) {
+        localStorage.setItem('userEmail', email);
+        // Redirect user to the home page on successful login
+        navigate('/Postings');
+      } else {
+        console.error('Login failed');
+      }
+    } catch (error) {
+      if (error.response) {
+        console.error('Error response data:', error.response.data);
+      } else if (error.request) {
+        console.error('No response received:', error.request);
+      } else {
+        console.error('Error setting up request:', error.message);
+      }
+    }
+  };
+  return (
+    <div id="main-login">
+      <div id="hero-login">
+        <div className="center-login">
+          <div id="header-login">
+            <h1>Plan, Post, & Produce</h1>
+            <div id="blocktext-header">
+              <div id="text-dot">
+                <h1 id="header2"><span className="text-p">Projects</span>.</h1>
+              </div>
+              <h2 id="header3"><span className="desc">Discover Your Community Now.</span></h2>
+              <form onSubmit={handleLogin}>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <button type="submit">Login</button>
+              </form>
             </div>
           </div>
         </div>
-        </div>
       </div>
-    );
-  }
-
-export default Login
+    </div >
+  );
+};
 
