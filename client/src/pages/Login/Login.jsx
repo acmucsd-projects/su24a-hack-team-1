@@ -13,11 +13,7 @@ export default function Login() {
     e.preventDefault()
     try {
       console.log('email:', email);
-      const response = await axios.post('http://localhost:3001/api/login', { 
-        email: email,
-         name: "", 
-         wesbite: "", 
-         biography: "" 
+      const response = await axios.post('http://localhost:3001/api/login', {email
       });
       console.log(response.data);
       if (response.status === 200) {

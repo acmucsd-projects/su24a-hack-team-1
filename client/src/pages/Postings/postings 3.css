@@ -1,0 +1,69 @@
+Global Styles
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Overused Grotesk";
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+#btn-edit {
+    font-family: "Overused Grotesk Medium";
+    color: rgb(140, 140, 140);
+    background: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 167px;
+    height: 35px;
+    align-items: center;
+    padding: 10px 40px;
+    margin-left: 450px;
+    font-size: 18px;
+    margin-top: 50px;
+    border: 1;
+    border-radius: 8px;
+}
+
+
+#btn-edit:hover {
+    background-color: black;
+    color: white;
+    font-family: "Overused Grotesk Light" ;
+    cursor: pointer;
+}
+.container{
+    display:flex;
+    flex-direction: row;
+    border: 10px ;
+    height: 90vh;
+    padding: 100px;
+    flex-wrap:wrap;
+    align-content: flex-start;
+    column-gap:2em;
+    row-gap:2em;
+
+
+}
+.box{
+    width: 150px;
+    height: 150px;
+    font-size: 3em;
+    text-align: center;
+    border-radius: 15px;
+}
+#box1{
+    background-color: darkgrey;
+    align-self:start;
+}
+#box2{
+    background-color: darkgrey;
+}
+#box3{
+    background-color: darkgrey;
+}
+#box4{
+    background-color: darkgrey;
+}
