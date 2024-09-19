@@ -1,6 +1,5 @@
 import React from "react";
 import VerticalNavbar from "../../components/VerticalNavbar";
-import Mlist from "../../components/Mlist";
 import "./navbar.css"
 
 

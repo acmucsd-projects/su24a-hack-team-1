@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Welcome from './pages/Welcome/Welcome'
 import Login from './pages/Login/Login';
 import Signup from './pages/Login/Signup';
+import Profile from './pages/Profile/Profile';
 import Postings from './pages/Postings/Postings';
 import Navbar from './pages/Navbar/Navbar';
 import Profbar from './pages/Profbar/Profbar';
@@ -51,6 +52,7 @@ function App() {
             <Route path="/Postings" element={<Postings />} />
             <Route path="/Navbar" element={<Navbar />} />
             <Route path="/Profbar" element={<Profbar />} />
+            <Route path='/Profile' element={<Profile />} />
           </Routes>
         )}
       </AnimatePresence>

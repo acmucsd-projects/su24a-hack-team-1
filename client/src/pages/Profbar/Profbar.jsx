@@ -1,5 +1,4 @@
 import React from "react";
-import Mlist from "../../components/Mlist";
 import ProfVNavBar from "../../components/ProfVNavBar";
 import "./profbar.css"
 

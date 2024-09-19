@@ -22,6 +22,9 @@ const ProfVNavbar = () => {
         <a href="#bio" className="prof-navbar-link">
           <span className="prof-navbar-text">4. Bio/Interests</span>
         </a>
+        <a href="#profilePic" className="prof-navbar-link">
+          <span className="prof-navbar-text">5. Profile Picture</span>
+        </a>
       </div>
     </nav>
   );
