@@ -1,4 +1,4 @@
-.postings-header {
+.s-postings-header {
     background-color: rgb(255, 255, 255);
     padding: 20px 50px; /* Adjusted padding */
     display: flex;
@@ -8,7 +8,7 @@
     width: calc(100% - 300px); /* Adjust width to account for the navbar */
 }
 
-.line {
+.s-line {
     background-color: rgb(255, 255, 255);
     border-bottom: 1px solid #000000;
     padding: 0px 50px; /* Adjusted padding */
@@ -16,7 +16,7 @@
   
 }
 
-.profile-info {
+.s-profile-info {
     display: flex;
     align-items: center;
     font-family: "Overused Grotesk Light" ;
@@ -27,15 +27,8 @@
     
 }
 
-.profile-pic-holder {
-    width: 90px; /* Profile picture size */
-    height: 90px;
-    background-color: #c3b4ef; /* Placeholder color for the profile picture */
-    border-radius: 50%;
-    margin-right: 30px; /* Space between the profile picture and the text */
-}
 
-.profile-info h2 {
+.s-profile-info h2 {
     margin: 0;
     font-size: 24px; /* Adjusted font size for the header */
     color: #333;
@@ -43,13 +36,13 @@
     
 }
 
-.profile-container {
+.s-profile-container {
     margin: 20px 0; /* Adjust margin-top and margin-bottom only */
     max-width: 100%; /* Allow the grid to extend to the full width of the screen */
     padding: 20px;
     border-radius: 3px;
 }
-.gallery {
+.s-gallery {
     display: grid;
     grid-template-columns: repeat(3, minmax(200px, 1fr)); /* Responsive columns */
     gap: 20px; /* Space between items */
@@ -59,13 +52,13 @@
 }
 
 
-.gallery div {
+.s-gallery div {
     background-color: #dbdbdb;
     padding-bottom: 100%; /* Makes the divs square */
     position: relative;
 }
 
-.gallery div img {
+.s-gallery div img {
     position: absolute;
     top: 0;
     left: 0;
@@ -74,7 +67,7 @@
     object-fit: fill; /* Ensures the image covers the square without distortion */
 }
 
-.placeholder {
+.s-placeholder {
     position: absolute;
     top: 0;
     left: 0;
@@ -86,33 +79,8 @@
     font-size: 24px;
     color: #aaa;
 }
-.bttns {
-    /* Button container alignment */
-    display: flex;
-    align-items: center;
-}
 
-#btn-edit-pf {
-    font-family: "Overused Grotesk Medium";
-    color: black;
-    background: #E4DFF3;
-    cursor: pointer;
-    padding: 10px 40px; /* Adjusted padding */
-    margin-left: 15px;
-    font-size: 18px;
-    border: 1;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#btn-edit-pf:hover {
-    background-color: black;
-    color: white;
-    font-family: "Overused Grotesk Light";
-    cursor: pointer;
-}
-
-.modal {
+.s-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -125,7 +93,7 @@
     z-index: 999;
 }
 
-.modal-content {
+.s-modal-content {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -135,14 +103,14 @@
     text-align: center;
 }
 
-.modal-header {
+.s-modal-header {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-.modal-header .profile-pic-holder {
+.s-modal-header .profile-pic-holder {
     width: 50px;
     height: 50px;
     background-color: #E4DFF3;
@@ -150,18 +118,18 @@
     margin-right: 15px;
 }
 
-.modal-image {
+.s-modal-image {
     width: 100%;
     height: auto;
     margin-bottom: 20px;
 }
 
-.task-title {
+.s-task-title {
     font-size: 18px;
     margin-bottom: 10px;
 }
 
-.task-description {
+.s-task-description {
     font-size: 14px;
     color: #aaa;
 }
@@ -174,7 +142,7 @@
     cursor: pointer;
 }
 
-.prev, .next {
+.s-prev, .s-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -186,70 +154,15 @@
     border-radius: 50%;
 }
 
-.prev {
+.s-prev {
     left: 10px;
 }
 
-.next {
+.s-next {
     right: 10px;
 }
-.bttns {
-
-    margin-left: 0vh;
-    margin-top: 0vh;
-    margin-top: 0vh;
-
-}
-
-#btn-edit-pf:hover {
-    cursor: pointer;
-}
 
 
-#btn-edit-pf {
-    font-family: "Overused Grotesk Light" ;
-    color: #8c8c8c;
-    background: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    width: 150px;
-    height: 30px;
-    font-size:20px;
-    padding: 0px 0px;
-}
 
 
-#btn-edit-pf:hover {
-    background-color: black;
-    color: white;
-    font-family: "Overused Grotesk Light" ;
-    cursor: pointer;
-    font-size:20px;
-    padding: 0px 0px;
-} 
 
-
-.website-link {
-    display: block;
-    font-size: 16px;
-    color: #0073e6; /* Blue color for the link */
-    text-decoration: none;
-    margin-bottom: 5px;
-    margin-left: 350px; /* Add margin to shift the header content to the right 
-    */
-    width: calc(100% - 400px); /* Adjust width to account for the navbar */
-}
-
-.website-link:hover {
-    text-decoration: underline;
-}
-
-.bio {
-    font-size: 16px;
-    color: #aaa;
-    max-width: calc(100% - 400px); /* Limit the bio width */
-    line-height: 1.5;
-    margin-left: 350px; /* Add margin to shift the header content to the right 
-    */
-    width: calc(100% - 300px); /* Adjust width to account for the navbar */
-}

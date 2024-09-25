@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import './postings.css';
+import './saved.css';
 import { useNavigate } from 'react-router-dom';
 import VerticalNavbar from "../../components/VerticalNavbar";
 
-const Postings = () => {
+const Saved = () => {
     const navigate = useNavigate();
     const [selectedImage, setSelectedImage] = useState(null); // State to store selected image
     const [currentIndex, setCurrentIndex] = useState(null); // State to store the current index for navigation
 
     // Sample gallery image URLs
     const galleryImages = [
-        'https://m.media-amazon.com/images/I/81lnPKhwFfL._AC_UF894,1000_QL80_.jpg', // Sample Image 1
-        'https://m.media-amazon.com/images/I/71cDPa1NSfL._AC_UF894,1000_QL80_.jpg', // Sample Image 2
-        'https://m.media-amazon.com/images/I/818UxJzyshL.jpg', 'https://m.media-amazon.com/images/I/81oq4x6xo8L.jpg' // Empty placeholders
+        'https://www.allrecipes.com/thmb/XSJoH98eVnTCnaE6lTcDpYHbalw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9870-easy-sugar-cookies-mfs356-1-8c317695c5b645a48f6b20d1b97d3c93.jpg', // Sample Image 1
+        'https://rip94550.wordpress.com/wp-content/uploads/2012/07/rings-7-2-3.png', // Sample Image 2
+        'https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGR2YW5nb2doLXNudmdyb2IuanBn.jpg', 'https://m.media-amazon.com/images/I/81oq4x6xo8L.jpg' // Empty placeholders
     ];
 
     const handleClick = () => {
@@ -45,31 +45,18 @@ const Postings = () => {
         <div>
             <VerticalNavbar />
 
-            <header className="postings-header">
-                
-    <div className="profile-info">
-        <div className="profile-pic-holder"></div>
-        <h2>First Name Last Name - Location</h2>
-    </div>
-    <div className="bttns">
-        <button id="btn-edit-pf" onClick={handleClick}>Edit Profile</button>
-    </div>
-    {/* Separate lines for the website and bio below the buttons */}
-    
-</header>
-<a href="#" className="website-link">www.example.com</a>
-<p className="bio">This is a short bio placeholder. Add more text about yourself here.</p>
 
-            <header className="line"></header>
 
-            <div className="profile-container">
-                <div className="gallery">
+            <header className="s-line"></header>
+
+            <div className="s-profile-container">
+                <div className="s-gallery">
                     {galleryImages.map((image, index) => (
                         <div key={index} onClick={() => openModal(index)}>
                             {image ? (
                                 <img src={image} alt={`Gallery item ${index}`} />
                             ) : (
-                                <div className="placeholder">+</div> // Placeholder content
+                                <div className="s-placeholder">+</div> // Placeholder content
                             )}
                         </div>
                     ))}
@@ -77,21 +64,21 @@ const Postings = () => {
             </div>
 
             {selectedImage && (
-                <div className="modal">
-                    <div className="modal-content">
+                <div className="s-modal">
+                    <div className="s-modal-content">
                         <span className="close" onClick={closeModal}>&times;</span>
                         
-                        <div className="modal-header">
+                        <div className="s-modal-header">
                             <div className="profile-pic-holder"></div>
                             <h2>First Name Last Name</h2>
                         </div>
                         
-                        <p className="task-title">Task Title</p>
+                        <p className="s-task-title">Task Title</p>
                         <img src={selectedImage} alt="Enlarged view" className="modal-image" />
-                        <p className="task-description">Task description goes here...</p>
+                        <p className="s-task-description">Task description goes here...</p>
 
-                        <button className="prev" onClick={goToPrev}>&#8249;</button>
-                        <button className="next" onClick={goToNext}>&#8250;</button>
+                        <button className="s-prev" onClick={goToPrev}>&#8249;</button>
+                        <button className="s-next" onClick={goToNext}>&#8250;</button>
                     </div>
                 </div>
             )}
@@ -99,4 +86,4 @@ const Postings = () => {
     );
 };
 
-export default Postings;
+export default Saved;

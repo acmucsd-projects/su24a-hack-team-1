@@ -9,6 +9,8 @@ import Navbar from './pages/Navbar/Navbar';
 import Profbar from './pages/Profbar/Profbar';
 import TopNavBar from './components/TopNavBar';
 import FontFaceObserver from 'fontfaceobserver';
+import NewPost from './pages/NewPost/NewPost';
+import Saved from './pages/Saved/Saved';
 
 
 function App() {
@@ -51,6 +53,8 @@ function App() {
             <Route path="/Postings" element={<Postings />} />
             <Route path="/Navbar" element={<Navbar />} />
             <Route path="/Profbar" element={<Profbar />} />
+            <Route path="/NewPost" element={<NewPost />} />
+            <Route path="/Saved" element={<Saved />} />
           </Routes>
         )}
       </AnimatePresence>

@@ -1,0 +1,158 @@
+.new-post {
+  max-width: 1500px; /* Increased maximum width */
+  margin: 0 auto;
+  padding: 40px; /* Increased padding */
+
+
+  margin-left: 250px; /* Add margin to shift the header content to the right 
+  */
+  width: calc(100% - 300px); /* Adjust width to account for the navbar */
+}
+
+.new-post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px; /* Increased margin */
+  
+}
+
+.form-item label {
+  flex: 1;
+  font-weight: bold;
+  margin-right: 20px; /* Increased margin */
+  font-size: 18px; /* Increased font size */
+  font-family: "Overused Grotesk Light" ;
+}
+
+.circle {
+  display: inline-block;
+  width: 40px; /* Increased size */
+  height: 40px; /* Increased size */
+  border-radius: 50%;
+  background-color: #c3b4ef;
+  color: #4E5C6A;
+  text-align: center;
+  line-height: 40px; /* Increased line height */
+  margin-right: 20px; /* Increased margin */
+  font-size: 20px; /* Increased font size */
+}
+
+input[type="text"],
+input[type="file"],
+input[type="date"],
+textarea {
+  flex: 3;
+  padding: 12px; /* Increased padding */
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 6px; /* Increased border-radius */
+  font-size: 16px; /* Increased font size */
+}
+
+textarea {
+  resize: none;
+  height: 120px; /* Increased height */
+}
+
+.cropped-image-preview {
+  margin-top: 20px; /* Increased margin */
+  text-align: center;
+}
+
+.cropped-image-preview img {
+  max-width: 100%;
+  max-height: 300px; /* Increased max height */
+  border-radius: 12px; /* Increased border-radius */
+  border: 1px solid #ddd;
+}
+
+.quota-controls {
+  display: flex;
+  align-items: center;
+  flex-direction: row; /* Ensure horizontal alignment */
+  gap: 10px; /* Space between buttons and display */
+}
+
+.quota-button {
+  width: 40px; /* Increased size */
+  height: 40px; /* Increased size */
+  font-size: 24px; /* Increased font size */
+  margin: 0 15px; /* Increased margin */
+  border: none;
+  background-color: #D3C2F8;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.quota-button:hover {
+  background-color: #D3C2F8;
+}
+.quota-display {
+  font-size: 24px; /* Increased font size */
+  margin-left: 10px; /* Adjusted margin */
+}
+
+.submit-button {
+  padding: 15px 25px; /* Increased padding */
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 6px; /* Increased border-radius */
+  cursor: pointer;
+  font-size: 18px; /* Increased font size */
+  margin-top: 30px; /* Increased margin */
+}
+
+.submit-button:hover {
+  background-color: #000000;
+}
+
+/* Crop Modal Styles */
+.crop-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Slightly darker background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.crop-modal-content {
+  background-color: white;
+  padding: 40px; /* Increased padding */
+  border-radius: 12px; /* Increased border-radius */
+  text-align: center;
+  position: relative;
+  width: 90%;
+  max-width: 900px; /* Increased maximum width */
+}
+
+.crop-container {
+  position: relative;
+  width: 100%;
+  height: 700px; /* Increased height */
+  max-height: 700px; /* Increased max height */
+  margin-bottom: 30px; /* Increased margin */
+}
+
+.crop-confirm-button {
+  padding: 15px 30px; /* Increased padding */
+  font-size: 18px; /* Increased font size */
+  background-color: #D3C2F8;
+  color: white;
+  border: none;
+  border-radius: 6px; /* Increased border-radius */
+  cursor: pointer;
+}
+
+.crop-confirm-button:hover {
+  background-color: #c1a5ff;
+}

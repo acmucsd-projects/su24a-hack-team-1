@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HiMiniHome } from "react-icons/hi2";
-import { FaBell, FaUserCircle } from "react-icons/fa";
+import { FaBell, FaUserCircle, FaHeart } from "react-icons/fa";
 import './verticalbar.css';
 import Notifbar from './Notifbar'; // Import the Notifbar component
 
@@ -10,7 +10,6 @@ const VerticalNavbar = () => {
   const handleNotifbarToggle = () => {
     setNotifbarOpen(!notifbarOpen);
   };
-
   return (
     <>
       <nav className="vertical-navbar">
@@ -20,21 +19,21 @@ const VerticalNavbar = () => {
           </span>
         </div>
         <div className="navbar-links">
-          <a href="#home" className="navbar-link">
+          <a href="/home" className="navbar-link">
             <HiMiniHome size={25} color="#D3C2F8" />
             <span className="navbar-text">Home</span>
           </a>
-          <a href="#notifications" className="navbar-link" onClick={handleNotifbarToggle}>
-            <FaBell size={25} color="#D3C2F8" />
-            <span className="navbar-text">Notifications</span>
+          <a href="/saved" className="navbar-link">
+            <FaHeart size={25} color="#D3C2F8" />
+            <span className="navbar-text">Saved</span>
+            
           </a>
-          <a href="#profile" className="navbar-link">
+          <a href="/postings" className="navbar-link">
             <FaUserCircle size={25} color="#D3C2F8" />
             <span className="navbar-text">Profile</span>
           </a>
         </div>
       </nav>
-      <Notifbar isOpen={notifbarOpen} onClose={() => setNotifbarOpen(false)} />
     </>
   );
 };
