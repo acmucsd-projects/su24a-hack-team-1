@@ -1,0 +1,266 @@
+.postings-header {
+    background-color: rgb(255, 255, 255);
+    padding: 20px 50px; /* Adjusted padding */
+    display: flex;
+    align-items: center;
+    margin-left: 300px; /* Add margin to shift the header content to the right 
+    */
+    width: calc(100% - 300px); /* Adjust width to account for the navbar */
+}
+
+.line {
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid #000000;
+    padding: 0px 50px; /* Adjusted padding */
+
+  
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    font-family: "Overused Grotesk Light" ;
+
+        left: 75%; /* Increase this percentage to move the entire section more to the right */
+    
+    
+    
+}
+
+.profile-pic-holder {
+    width: 90px; /* Profile picture size */
+    height: 90px;
+    background-color: #c3b4ef; /* Placeholder color for the profile picture */
+    border-radius: 50%; /* Makes the container a circle */
+    margin-right: 30px; /* Space between the profile picture and the text */
+    overflow: hidden; /* Ensures that any part of the image that goes beyond the circle is hidden */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic-holder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire circle without distortion */
+    border-radius: 50%; /* Ensures the image itself is displayed as a circle */
+}
+
+.profile-info h2 {
+    margin: 0;
+    font-size: 24px; /* Adjusted font size for the header */
+    color: #333;
+    font-family: "Overused Grotesk Light" ;
+    
+}
+
+.profile-container {
+    margin: 20px 0; /* Adjust margin-top and margin-bottom only */
+    max-width: 100%; /* Allow the grid to extend to the full width of the screen */
+    padding: 20px;
+    border-radius: 3px;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between items */
+    padding:  20px; /* Add minimal padding if needed */
+    margin: 0; /* Remove horizontal margins */
+    margin-left: 250px
+}
+
+
+.gallery div {
+    background-color: #dbdbdb;
+    padding-bottom: 100%; /* Makes the divs square */
+    position: relative;
+}
+
+.gallery div img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill; /* Ensures the image covers the square without distortion */
+}
+
+.placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #aaa;
+}
+.bttns {
+    /* Button container alignment */
+    display: flex;
+    align-items: center;
+}
+
+#btn-edit-pf {
+    font-family: "Overused Grotesk Medium";
+    color: black;
+    background: #E4DFF3;
+    cursor: pointer;
+    padding: 10px 40px; /* Adjusted padding */
+    margin-left: 15px;
+    font-size: 18px;
+    border: 1;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#btn-edit-pf:hover {
+    background-color: black;
+    color: white;
+    font-family: "Overused Grotesk Light";
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.modal-header .profile-pic-holder {
+    width: 50px;
+    height: 50px;
+    background-color: #E4DFF3;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.task-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.task-description {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+.bttns {
+
+    margin-left: 0vh;
+    margin-top: 0vh;
+    margin-top: 0vh;
+
+}
+
+#btn-edit-pf:hover {
+    cursor: pointer;
+}
+
+
+#btn-edit-pf {
+    font-family: "Overused Grotesk Light" ;
+    color: #8c8c8c;
+    background: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 150px;
+    height: 30px;
+    font-size:20px;
+    padding: 0px 0px;
+}
+
+
+#btn-edit-pf:hover {
+    background-color: black;
+    color: white;
+    font-family: "Overused Grotesk Light" ;
+    cursor: pointer;
+    font-size:20px;
+    padding: 0px 0px;
+} 
+
+
+.website-link {
+    display: block;
+    font-size: 16px;
+    color: #0073e6; /* Blue color for the link */
+    text-decoration: none;
+    margin-bottom: 5px;
+    margin-left: 350px; /* Add margin to shift the header content to the right 
+    */
+    width: calc(100% - 400px); /* Adjust width to account for the navbar */
+}
+
+.website-link:hover {
+    text-decoration: underline;
+}
+
+.bio {
+    font-size: 16px;
+    color: #aaa;
+    max-width: calc(100% - 400px); /* Limit the bio width */
+    line-height: 1.5;
+    margin-left: 350px; /* Add margin to shift the header content to the right 
+    */
+    width: calc(100% - 300px); /* Adjust width to account for the navbar */
+}

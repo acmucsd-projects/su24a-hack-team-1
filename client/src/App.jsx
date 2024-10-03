@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import Welcome from './pages/Welcome/Welcome'
+import Welcome from './pages/Welcome/Welcome';
 import Login from './pages/Login/Login';
 import Signup from './pages/Login/Signup';
 import Postings from './pages/Postings/Postings';
-import Navbar from './pages/Navbar/Navbar';
-import Profbar from './pages/Profbar/Profbar';
+import Newpost from './pages/NewPost/NewPost';
 import TopNavBar from './components/TopNavBar';
 import FontFaceObserver from 'fontfaceobserver';
-import NewPost from './pages/NewPost/NewPost';
+import Homepage from './pages/Homepage/Homepage';
+import Profile from './pages/Profile/Profile';
+import Upload from './pages/Upload/upload';
 import Saved from './pages/Saved/Saved';
-
 
 function App() {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // Define the routes where you want to display the TopNavBar and animation
+  // Define the routes where you want to display the TopNavBar
   const withTopNavBar = ["/", "/Login"];
+
   useEffect(() => {
     const font = new FontFaceObserver('Overused Grotesk');
     
@@ -33,30 +34,29 @@ function App() {
 
   return (
     <>
+      {/* Conditionally render TopNavBar */}
       {withTopNavBar.includes(currentPath) && <TopNavBar />}
-      <AnimatePresence>
-        {withTopNavBar.includes(currentPath) ? (
-          <motion.div
-            key={currentPath}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Welcome />} />
-              <Route path="/Login" element={<Login />} />
-            </Routes>
-          </motion.div>
-        ) : (
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentPath}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Welcome />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/Signup" element={<Signup />} />
             <Route path="/Postings" element={<Postings />} />
-            <Route path="/Navbar" element={<Navbar />} />
-            <Route path="/Profbar" element={<Profbar />} />
-            <Route path="/NewPost" element={<NewPost />} />
+            <Route path="/Newpost" element={<Newpost />} />
+            <Route path='/Home' element={<Homepage />} />
+            <Route path='/Profile' element={<Profile />} />
+            <Route path="/Upload" element={<Upload />} />
             <Route path="/Saved" element={<Saved />} />
           </Routes>
-        )}
+        </motion.div>
       </AnimatePresence>
     </>
   );

@@ -1,0 +1,33 @@
+.post-icon-container {
+    display: inline-block;
+    position: relative;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0 10px; /* Add some space between icons */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.post-icon {
+    color: black; /* Default color for inactive state */
+    position: relative;
+    z-index: 1;
+}
+
+/* Change color when the checkmark is active */
+.post-icon-container.checkmark.active .post-icon {
+    color: black; /* Active color for checkmark */
+    background-color: #B7DE8F;
+    border-radius: 4px;
+}
+
+/* Change color when the x-icon is active */
+.post-icon-container.x-icon.active .post-icon {
+    color: black; /* Active color for x-icon */
+    background-color: #F2796E;
+    border-radius: 4px;
+}
+
+/* Optional: Change color on hover */
+.post-icon-container:hover .post-icon {
+    color: #007BFF; /* Change to a different color on hover */
+}

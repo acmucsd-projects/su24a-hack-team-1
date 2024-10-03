@@ -3,20 +3,22 @@ import Cropper from 'react-easy-crop';
 import 'react-easy-crop/react-easy-crop.css';
 import './newpost.css';
 import VerticalNavbar from "../../components/VerticalNavbar";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const NewPost = () => {
   const [taskName, setTaskName] = useState('');
-  const [taskTags, setTaskTags] = useState('');
+  const [taskTags, setTaskTags] = useState(''); // New taskTags state
   const [taskDescription, setTaskDescription] = useState('');
   const [quota, setQuota] = useState(1);
   const [deadline, setDeadline] = useState('');
-
   const [imageSrc, setImageSrc] = useState(null);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
   const [croppedImage, setCroppedImage] = useState(null);
   const [showCropModal, setShowCropModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -69,7 +71,7 @@ const NewPost = () => {
           if (!blob) {
             return reject(new Error('Canvas is empty'));
           }
-          const croppedImage = window.URL.createObjectURL(blob);
+          const croppedImage = new File([blob], 'croppedImage.jpg', { type: 'image/jpeg' });
           resolve(croppedImage);
         }, 'image/jpeg');
       };
@@ -79,17 +81,33 @@ const NewPost = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Submit form logic here
-    console.log({
-      taskName,
-      croppedImage,
-      taskTags,
-      taskDescription,
-      quota,
-      deadline,
-    });
+    
+    const formDataObj = new FormData();
+    formDataObj.append('taskName', taskName);
+    formDataObj.append('taskTags', taskTags);
+    formDataObj.append('taskDescription', taskDescription);
+    formDataObj.append('quota', quota);
+    formDataObj.append('deadline', deadline);
+    
+    if (croppedImage) {
+      formDataObj.append('image', croppedImage); // Add cropped image
+    }
+
+    try {
+      const token = localStorage.getItem('token'); // Assuming you store JWT in localStorage
+      const response = await axios.post('http://localhost:4000/posts', formDataObj, {
+        headers: {
+          'Authorization': token,
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log(response.data);
+      navigate('/Home'); // Navigate to homepage after successful submission
+    } catch (error) {
+      console.error('Error creating post:', error);
+    }
   };
 
   return (
@@ -104,6 +122,7 @@ const NewPost = () => {
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
             placeholder="Enter task name"
+            required
           />
         </div>
 
@@ -113,7 +132,7 @@ const NewPost = () => {
           <input type="file" accept="image/*" onChange={handleImageUpload} />
         </div>
 
-        {/* <div className="form-item">
+        <div className="form-item">
           <span className="circle">3</span>
           <label>Task Tags:</label>
           <input
@@ -122,26 +141,27 @@ const NewPost = () => {
             onChange={(e) => setTaskTags(e.target.value)}
             placeholder="Enter tags, separated by commas"
           />
-        </div> */}
+        </div>
 
         <div className="form-item">
-          <span className="circle">3</span>
+          <span className="circle">4</span>
           <label>Task Description:</label>
           <textarea
             value={taskDescription}
             onChange={(e) => setTaskDescription(e.target.value)}
             placeholder="Enter task description"
+            required
           />
         </div>
 
-        {/* <div className="form-item">
+        <div className="form-item">
           <span className="circle">5</span>
           <label>Match Quota/Spots available:</label>
           <div className="quota-controls">
             <button
               type="button"
               className="quota-button"
-              onClick={() => setQuota(Math.max(1, quota - 1))}
+              onClick={() => setQuota(Math.max(1, quota - 1))} // Decrease but not below 1
             >
               -
             </button>
@@ -149,7 +169,7 @@ const NewPost = () => {
             <button
               type="button"
               className="quota-button"
-              onClick={() => setQuota(Math.min(10, quota + 1))}
+              onClick={() => setQuota(Math.min(10, quota + 1))} // Increase but not above 10
             >
               +
             </button>
@@ -163,9 +183,10 @@ const NewPost = () => {
             type="date"
             value={deadline}
             onChange={(e) => setDeadline(e.target.value)}
-            min={new Date().toISOString().split('T')[0]}
+            min={new Date().toISOString().split('T')[0]} // Prevent selecting past dates
+            required
           />
-        </div> */}
+        </div>
 
         <button type="submit" className="submit-button">Submit</button>
       </form>

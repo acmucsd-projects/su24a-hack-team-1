@@ -1,46 +1,41 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const profileSchema = new Schema({
-    user_id: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    name: {
-        type: String,
-        required: true
-    },
-    resume: {
-        type: String
-    },
-    website: {
-        type: String
-    },
-    username: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    biography: {
-        type: String
-    },
-    state_abbrev: {
-        type: String
-    },
-    city: {
-        type: String
-    },
-    zip_code: {
-        type: Number
-    }
-}, { timestamps: true });
+const ProfileSchema = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true, // Link to the User model
+    ref: 'User',
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  location: {
+    type: String,
+    required: true,
+  },
+  school: {
+    type: String,
+    required: true,
+  },
+  bio: {
+    type: String,
+    required: true,
+  },
+  website: {
+    type: String,
+  },
+  profilePic: {
+    type: String, // Store the file path for profile picture
+  },
+  resume: {
+    type: String, // Store the file path for resume
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
 
-const Profile = mongoose.model('Profile', profileSchema);
-
+const Profile = mongoose.model('Profile', ProfileSchema);
 module.exports = Profile;

@@ -1,60 +1,77 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
+import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
+import "./signup.css"
+import axios from 'axios';
 
-// https://developers.google.com/identity/gsi/web/reference/js-reference
+function Signup() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-const SignUp = () => {
-    const url = process.env.REACT_APP_BACKEND_URL;
-    const { handleGoogle, loading, error } = useFetch(url + "/signup");
+  const handleSignup = async (e) => {
+    // Make a request to your server to "signup"
+    e.preventDefault();
+    try {
+      console.log('email:', email, 'password:', password);
+      const response = await axios.post('http://localhost:4000/api/signup', { email, password });
+      console.log(response.data);
+      if (response.status === 201) {
+        // Save user email or any other necessary data
+        const userId = response.data.userId;
+        const token = response.data.token;
+        localStorage.setItem('token', token);
+        localStorage.setItem('userEmail', email);
+        localStorage.setItem('userId', userId);
+        // Redirect user to the home page or any other page after successful signup
+        navigate('/Upload');
+      } else {
+        console.error('Signup failed');
+      }
+    } catch (error) {
+      if (error.response) {
+        console.error('Error response data:', error.response.data);
+      } else if (error.request) {
+        console.error('No response received:', error.request);
+      } else {
+        console.error('Error setting up request:', error.message);
+      }
+    }
+  };
 
-    useEffect(() => {
-        /* global google */
-        if (window.google) {
-        google.accounts.id.initialize({
-            client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-            callback: handleGoogle,
-        });
-
-        google.accounts.id.renderButton(document.getElementById("signUpDiv"), {
-            // type: "standard",
-            theme: "filled_black",
-            // size: "small",
-            text: "continue_with",
-            shape: "pill",
-        });
-
-        // google.accounts.id.prompt()
-        }
-    }, [handleGoogle]);
-
-    return (
-        <>
-        <div id="main">
-        <div id="hero">
-            <div id="nav">
-            <a href="#">Project<span className="text-purple">Up</span></a>
-            <p>About Us<i className="ri-arrow-down-s-line"></i></p>
+  return (
+    <div id="main-signup">
+      <div id="hero-signup">
+        <div className="center-signup">
+          <div id="header-signup">
+            <h1>Join Us & Start Posting</h1>
+            <div id="blocktext-header-signup">
+              <div id="text-dot-signup">
+                <h1 id="header2-signup"><span className="text-p">Create</span>.</h1>
+              </div>
+              <h2 id="header3-signup"><span className="desc">Become Part of Our Community Today.</span></h2>
+              <form onSubmit={handleSignup}>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <button type="submit">Sign Up</button>
+              </form>
             </div>
-            <div className="center">
-            <div id="header">
-                <h1>Plan, Post, & Produce </h1>
-                <div id="blocktext">
-                <h1 id="header2"><span className="text-p">Projects</span>.</h1>
-                <h2 id="header3"><span className="desc">Disocover Your Community Now.</span></h2>
-                </div>
-                <div className="bttns">
-                <button id="btn-cont"><i class="fa-brands fa-google"></i>Continue with Google</button>
-                {error && <p style={{ color: "red" }}>{error}</p>}
-                {loading ? (<div>Loading....</div>) : (<div id="signUpDiv" data-text="signup_with"></div>)}
-                </div>
-            </div>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
+    </div>
+  );
+}
 
-        </>
-    );
-};
-
-export default SignUp;
+export default Signup;
