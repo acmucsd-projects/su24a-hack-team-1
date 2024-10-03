@@ -1,9 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './welcome.css';
-import { motion } from "framer-motion"
-
-
+import { motion } from "framer-motion";
 
 function Welcome() {
   const navigate = useNavigate();
@@ -14,7 +12,7 @@ function Welcome() {
 
   return (
     <>
-    <section>
+      <section>
         <div id="main">
           <div id="hero">
             <div className="left">
@@ -29,12 +27,12 @@ function Welcome() {
                 </div>
               </div>
             </div>
-            
+
             <div id="hero-footer">
               <motion.div whileHover={{ scale: 1.1 }}>
-              <a href="#about-us" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <i className="ri-arrow-down-s-line"></i>
-              </a>
+                <a href="#about-us" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <i className="ri-arrow-down-s-line"></i>
+                </a>
               </motion.div>
             </div>
           </div>
@@ -43,7 +41,29 @@ function Welcome() {
 
       <section id='about-us'>
         <div id="about-page">
-          <h1>this is about us section!</h1>
+          <h1>Meet Our Team</h1>
+          <div className="cards-container">
+            <div className="card">
+              <img src="https://www.collaborative.org/wp-content/uploads/2022/11/421-4212617_person-placeholder-image-transparent-hd-png-download.png" alt="Person 1" className="person-image" />
+              <p className="caption">Shamita Goyal</p>
+            </div>
+            <div className="card">
+              <img src="https://www.collaborative.org/wp-content/uploads/2022/11/421-4212617_person-placeholder-image-transparent-hd-png-download.png" alt="Person 2" className="person-image" />
+              <p className="caption">Carl Casares</p>
+            </div>
+            <div className="card">
+              <img src="https://www.collaborative.org/wp-content/uploads/2022/11/421-4212617_person-placeholder-image-transparent-hd-png-download.png" alt="Person 3" className="person-image" />
+              <p className="caption">Jason Wang</p>
+            </div>
+            <div className="card">
+              <img src="https://www.collaborative.org/wp-content/uploads/2022/11/421-4212617_person-placeholder-image-transparent-hd-png-download.png" alt="Person 4" className="person-image" />
+              <p className="caption">Osheen Tikku</p>
+            </div>
+            <div className="card">
+              <img src="https://www.collaborative.org/wp-content/uploads/2022/11/421-4212617_person-placeholder-image-transparent-hd-png-download.png" alt="Person 5" className="person-image" />
+              <p className="caption">Jared Mendez</p>
+            </div>
+          </div>
         </div>
       </section>
     </>
