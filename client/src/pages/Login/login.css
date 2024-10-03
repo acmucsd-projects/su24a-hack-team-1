@@ -92,4 +92,9 @@ html, body {
     background-color: #E4DFF3;
     color: black;
     font-family: "Overused Grotesk", sans-serif;
+    
+}
+
+#login-but {
+    margin-left: 25%;
 }

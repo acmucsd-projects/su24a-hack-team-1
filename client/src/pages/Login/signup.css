@@ -136,3 +136,8 @@ form button:hover {
     text-align: center;
     margin-top: 10px;
 }
+
+
+#signup-but {
+    margin-left: 27%;
+}

@@ -68,7 +68,7 @@ function Login() {
                   aria-label="password"
                   required
                 />
-                {loading ? <p>Loading...</p> : <button type="submit">Login</button>}
+                {loading ? <p>Loading...</p> : <button id='login-but'type="submit">Login</button>}
                 {error && <p className="error-message">{error}</p>}
               </form>
             </div>

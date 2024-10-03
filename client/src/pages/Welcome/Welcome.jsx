@@ -46,24 +46,24 @@ function Welcome() {
           <h1>Meet Our Team</h1>
           <div className="cards-container">
             <div className="card">
-              <img src="https://www.collaborative.org/wp-content/uploads/2022/11/421-4212617_person-placeholder-image-transparent-hd-png-download.png" alt="Person 1" className="person-image" />
-              <p className="caption">Shamita Goyal</p>
+              <img src="/member-imgs/shamita.jpg" alt="Person 1" className="person-image" />
+              <p className="caption">Shamita Goyal<br/>Frontend Developer</p>
             </div>
             <div className="card">
-              <img src="https://www.collaborative.org/wp-content/uploads/2022/11/421-4212617_person-placeholder-image-transparent-hd-png-download.png" alt="Person 2" className="person-image" />
-              <p className="caption">Carl Casares</p>
+              <img src="/member-imgs/carl.jpeg" alt="Person 2" className="person-image" />
+              <p className="caption">Carl Casares<br/>Frontend Developer</p>
             </div>
             <div className="card">
-              <img src="https://www.collaborative.org/wp-content/uploads/2022/11/421-4212617_person-placeholder-image-transparent-hd-png-download.png" alt="Person 3" className="person-image" />
-              <p className="caption">Jason Wang</p>
+              <img src="/member-imgs/jared.jpeg" alt="Person 3" className="person-image" />
+              <p className="caption">Jared Mendez<br/>Frontend Developer</p>
             </div>
             <div className="card">
-              <img src="https://www.collaborative.org/wp-content/uploads/2022/11/421-4212617_person-placeholder-image-transparent-hd-png-download.png" alt="Person 4" className="person-image" />
-              <p className="caption">Osheen Tikku</p>
+              <img src="/member-imgs/osheen.jpg" alt="Person 4" className="person-image" />
+              <p className="caption">Osheen Tikku<br/>Backend Developer</p>
             </div>
             <div className="card">
-              <img src="https://www.collaborative.org/wp-content/uploads/2022/11/421-4212617_person-placeholder-image-transparent-hd-png-download.png" alt="Person 5" className="person-image" />
-              <p className="caption">Jared Mendez</p>
+              <img src="/member-imgs/jason.jpg" alt="Person 5" className="person-image" />
+              <p className="caption">Jason Wang<br/>Backend Developer</p>
             </div>
           </div>
         </div>

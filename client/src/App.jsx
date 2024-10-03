@@ -18,7 +18,7 @@ function App() {
   const currentPath = location.pathname;
 
   // Define the routes where you want to display the TopNavBar
-  const withTopNavBar = ["/", "/Login"];
+  const withTopNavBar = ["/", "/Login", "/Signup"];
 
   useEffect(() => {
     const font = new FontFaceObserver('Overused Grotesk');
