@@ -116,7 +116,7 @@ const Postings = () => {
       </div>
 
       {/* My Posts Section */}
-      <div className="my-posts">
+      {/* <div className="my-posts">
         <h2>My Posts</h2>
         {userPosts.length > 0 ? (
           <div className="post-grid">
@@ -135,7 +135,7 @@ const Postings = () => {
         ) : (
           <p>You have no posts yet.</p>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

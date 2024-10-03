@@ -24,10 +24,10 @@ const VerticalNavbar = () => {
             <HiMiniHome size={25} color="#D3C2F8" />
             <span className="navbar-text">Home</span>
           </a>
-          <a href="#notifications" className="navbar-link" onClick={handleNotifbarToggle}>
+          {/* <a href="#notifications" className="navbar-link" onClick={handleNotifbarToggle}>
             <FaBell size={25} color="#D3C2F8" />
             <span className="navbar-text">Notifications</span>
-          </a>
+          </a> */}
           <a href="/Profile" className="navbar-link">
             <FaUserCircle size={25} color="#D3C2F8" />
             <span className="navbar-text">Profile</span>
