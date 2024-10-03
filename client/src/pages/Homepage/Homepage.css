@@ -1,0 +1,73 @@
+.icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+  
+  /* Post feed container */
+.post-feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 50px; /* Extra padding for the bottom of the page */
+}
+  
+  /* Post styling */
+.post {
+    display: flex; /* Use flexbox for layout */
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    width: 600px; /* Increase the width */
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+  
+  /* Header styling */
+.post-header {
+    padding: 10px;
+    font-weight: bold;
+    border-bottom: 1px solid #dbdbdb;
+}
+  
+  /* Image styling */
+.post-image {
+    width: 280px; /* Increase width for the image */
+    height: 280px; /* Increase height for the image */
+    object-fit: cover; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between image and caption */
+}
+  
+  /* Footer styling */
+.post-footer {
+    display: flex; /* Use flexbox to arrange caption and icons */
+    flex-direction: column; /* Stack caption and icons vertically */
+    justify-content: center; /* Center vertically */
+    padding: 10px;
+    flex: 1; /* Allow footer to take up remaining space */
+}
+  
+.post-footer .icon {
+    margin-right: 10px;
+}
+  
+.post-footer p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+  
+
+.new-post-button {
+    background-color: black; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 65px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.new-post-button:hover {
+    background-color: #1B1A1A;
+}

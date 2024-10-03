@@ -10,6 +10,7 @@ import Navbar from './pages/Navbar/Navbar';
 import Profbar from './pages/Profbar/Profbar';
 import TopNavBar from './components/TopNavBar';
 import FontFaceObserver from 'fontfaceobserver';
+import Homepage from './pages/Homepage/Homepage';
 
 
 function App() {
@@ -53,6 +54,8 @@ function App() {
             <Route path="/Navbar" element={<Navbar />} />
             <Route path="/Profbar" element={<Profbar />} />
             <Route path='/Profile' element={<Profile />} />
+            <Route path='/Homepage' element={<Homepage />} />
+            
           </Routes>
         )}
       </AnimatePresence>

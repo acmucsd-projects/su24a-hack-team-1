@@ -20,7 +20,7 @@ const VerticalNavbar = () => {
           </span>
         </div>
         <div className="navbar-links">
-          <a href="#home" className="navbar-link">
+          <a href="/homepage" className="navbar-link">
             <HiMiniHome size={25} color="#D3C2F8" />
             <span className="navbar-text">Home</span>
           </a>
