@@ -28,3 +28,8 @@ DB_URL=mongodb://mongodburl.example.com:portnumber
    Look for the line ```var port = normalizePort(process.env.PORT || '3001');```
     Change it to any port you like!
 8. Happy hacking!
+
+<p align="center">
+  <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/imgs/prototype.png"/>
+&nbsp; &nbsp; &nbsp; &nbsp;
+</p>
