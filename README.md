@@ -1,10 +1,10 @@
 # ProjectUp 
 
 ## 01 Background/inspiration:
-- Our idea - We were inspired by combining the idea of productivity with the functionality of dating apps
+- `Our idea` - We were inspired by combining the idea of productivity with the functionality of dating apps
     - What if there was a way to look through nearby projects/activities and express your interest in them?
     - What if a community of students can unite with other students to help facilitate tasks easier in one app?
-- Our product - A dating app but for projects/activities rather than dates
+- `Our product` - A dating app but for projects/activities rather than dates
     - Restricted to school areas so individuals are serious about the events
     - Post about your activity and let students show their interest through a ✅ or ➖
 - Roles:
@@ -27,25 +27,29 @@
 ## 03 Design Process
 
 `1. Inspiration`
+- We wanted to go for neutral colors and a minimal UI design to match the modern aesthetic of many social media platforms and to make it easier for students to navigate the app, similar to what we observed in dating apps like Tinder and Bumble.
 <p align="center">
   <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/readme%20imgs/inspo.png" width="320" height="215"/>
 &nbsp; &nbsp; &nbsp; &nbsp;
   <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/readme%20imgs/inspo2.png" width="315" height="215"/>
 </p>
 
-`2. Sketching process`
+`2. Sketching process/Wireframing`
+- Our main inspiration was the UI of Instagram, which features a minimal aesthetic and a well-organized profile feed and home page. We sketched out Instagram's interface from their computer view as a reference and incorporated that into the design of our app.
 <p align="center">
   <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/readme%20imgs/brainstorm.png" width="315" height="215"/>
 &nbsp; &nbsp; &nbsp; &nbsp;
   <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/readme%20imgs/skecthes.png" width="315" height="215"/>
 </p>
 
-`3. lo-fis`
+`3. Protoyping/lo-fis`
+- Our low-fidelity designs were incorporated into our high-fidelity prototypes as we continued discussing design elements during our meetings. However, we realized that many of the designs and features we created would not be feasible given the time constraints. We also noticed that our initial designs did not account for several other features of the app, which led to multiple revisions.
 <p align="center">
   <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/readme%20imgs/lo-fis.png" width="410" height="300"/>
 </p>   
 
 `4. final-designs`
+- These were the final designs we decided to implement for our app, and we revised some of the other design elements as we couldn’t implement every feature we had in mind due to time constraints.
 <p align="center">
   <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/readme%20imgs/final%20designs.png" width="410" height="300"/>
 </p>  
