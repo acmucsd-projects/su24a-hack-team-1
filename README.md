@@ -28,16 +28,16 @@
 
 `1. Inspiration`
 <p align="center">
-  <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/readme%20imgs/inspo.png" width="315" height="215"/>
+  <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/readme%20imgs/inspo.png" width="320" height="215"/>
 &nbsp; &nbsp; &nbsp; &nbsp;
   <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/readme%20imgs/inspo2.png" width="315" height="215"/>
 </p>
 
 `2. Sketching process`
 <p align="center">
-  <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/readme%20imgs/brainstorm.png" width="400" height="300"/>
+  <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/readme%20imgs/brainstorm.png" width="315" height="215"/>
 &nbsp; &nbsp; &nbsp; &nbsp;
-  <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/readme%20imgs/skecthes.png" width="400" height="300"/>
+  <img src="https://github.com/acmucsd-projects/su24a-hack-team-1/blob/main/readme%20imgs/skecthes.png" width="315" height="215"/>
 </p>
 
 `3. lo-fis`
