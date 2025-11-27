@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './saved.css';
 import { useNavigate } from 'react-router-dom';
-import VerticalNavbar from "../../components/VerticalNavbar";
+import VerticalNavbar from "../../components/VerticalBar/VerticalNavbar";
 
 const Saved = () => {
     const navigate = useNavigate();

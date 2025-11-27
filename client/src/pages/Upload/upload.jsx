@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ProfVNavbar from '../../components/ProfVNavBar';
+import ProfVNavbar from '../../components/ProfNavbar/ProfVNavBar';
 import './upload.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';

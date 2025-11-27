@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './profile.css';
 import { useNavigate } from 'react-router-dom';
-import VerticalNavbar from "../../components/VerticalNavbar";
+import VerticalNavbar from "../../components/VerticalBar/VerticalNavbar";
 import axios from 'axios';
 
 const Postings = () => {

@@ -14,7 +14,36 @@ html {
 /* Main Container */
 #main {
     width: 100%;
+    /* display: flex;
+    flex-direction: row; */
 }
+
+#homeSVG {
+    position: absolute;
+    top: 13%;
+    left: 16%;
+    width: 50%;
+    height: 50%;
+}
+
+h1 {
+    margin: 0;
+    font-family: sans-serif;
+    font-weight: 400;
+    /* text-transform: uppercase; */
+    overflow: hidden;
+    position: relative;
+}
+
+.split-parent {
+    overflow: hidden;
+}
+
+.split-child {
+    display: inline-block;
+}
+
+
 
 /* Hero Section */
 #hero {
@@ -22,51 +51,60 @@ html {
     background-color: white;
     width: 100%;
     height: 100vh;
+    /* max-width: 900px; */
+    /* border: 2px solid red; */
+}
+
+#header2 {
+    margin-top: -1.5rem;
 }
 
 /* move the header elements to the left */
 .left {
     /* background-color: red; */
-    padding-left: 60px;
+    margin-left: 3rem;
 }
 
 /* Header */
 #header {
-    margin-top: 90px;
+    margin-top: 3rem;
 }
 
-#header h1{
+#header h1 {
     /* margin-left: 50px; */
     line-height: 1.5;
-    font-size: 6vw;
+    font-size: 4.75rem;
     font-family: "Overused Grotesk Light";
 }
 
-#header .text-purple{
+#header .text-purple {
     color: #D3C2F8;
     font-family: "Overused Grotesk Light";
 }
 
-#blocktext {
+/* #blocktext {
     width: fit-content;
 }
 
 #blocktext #header2{
     margin-left: 110px;
-}
+} */
 
 .left button {
     padding: 10px 40px;
     margin-left: 15px;
     font-size: 18px;
     margin-top: 50px;
-    border: 1;
     border-radius: 8px;
 }
 
 .buttons {
+    margin-top: -1rem;
     /* background-color: blue; */
-    margin-left: 25vh;
+    margin-left: 5rem;
+    position: absolute;
+    z-index: 1;
+
 }
 
 #btn-sign-up {
@@ -77,9 +115,7 @@ html {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#btn-log-in:hover {
-    cursor: pointer;
-}
+
 
 #btn-log-in {
     font-family: "Overused Grotesk Medium";
@@ -92,8 +128,11 @@ html {
 #btn-log-in:hover {
     background-color: black;
     color: white;
-    font-family: "Overused Grotesk Light" ;
+    font-family: "Overused Grotesk Light";
     cursor: pointer;
+    padding: 10px 41px;
+
+
 }
 
 #hero-footer {
@@ -102,63 +141,20 @@ html {
     position: absolute;
     right: 0;
     bottom: 0;
+    z-index: 1;
 }
 
 #hero-footer a {
-    display: inline-flex; 
-    align-items: center; 
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
     text-decoration: none;
     color: black;
     font-size: 2.5rem;
     background-color: #E4DFF3;
     border-radius: 50%;
-    width: 50px; /* Set the width of the background circle */
-    height: 50px; /* Set the height of the background circle */
-}
-
-/* About Us Section */
-#about-page {
-    text-align: center;
-    padding: 50px;
-    background-color: #f4f4f9;
-}
-
-#about-page h1 {
-    font-family: "Overused Grotesk Light";
-    font-size: 50px;
-    color: #333;
-    margin-bottom: 40px;
-}
-
-.cards-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-    width: 340px;
-    text-align: center;
-}
-
-.person-image {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-}
-
-.caption {
-    font-size: 16px;
-    color: #666;
-    margin-top: 10px;
-}
-
-#about-us {
-    height: 100vh;
+    width: 50px;
+    /* Set the width of the background circle */
+    height: 50px;
+    /* Set the height of the background circle */
 }

@@ -3,7 +3,7 @@ import { HiMiniHome } from "react-icons/hi2";
 import { FaBell, FaUserCircle, FaHeart} from "react-icons/fa";
 import { MdOutlinePostAdd } from "react-icons/md";
 import './verticalbar.css';
-import Notifbar from './Notifbar'; // Import the Notifbar component
+import Notifbar from '../NotiBar/Notifbar'; // Import the Notifbar component
 
 const VerticalNavbar = () => {
   const [notifbarOpen, setNotifbarOpen] = useState(false);

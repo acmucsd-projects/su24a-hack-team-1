@@ -1,5 +1,5 @@
 import React from "react";
-import VerticalNavbar from "../../components/VerticalNavbar";
+import VerticalNavbar from "../../components/VerticalBar/VerticalNavbar";
 import "./navbar.css"
 
 

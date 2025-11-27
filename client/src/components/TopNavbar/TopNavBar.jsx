@@ -23,11 +23,11 @@ function TopNavBar() {
 
     return (
         <div id="nav">
-            <motion.div whileHover={{ scale: 1.05 }}>
+           
                 <a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
                     Project<span className="text-purple">Up</span>
                 </a>
-            </motion.div>
+         
             <motion.p
                 whileHover={{ scale: 1.05 }}
                 style={{ cursor: 'pointer', marginLeft: '20px' }}

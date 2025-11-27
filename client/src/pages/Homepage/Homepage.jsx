@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Homepage.css';
-import VerticalNavbar from '../../components/VerticalNavbar';
-import Post from '../../components/Post';
-import Modal from '../../components/Modal'; // Import the Modal component
+import VerticalNavbar from '../../components/VerticalBar/VerticalNavbar';
+import Post from '../../components/Posts/Post';
+import Modal from '../../components/Modal/Modal'; // Import the Modal component
 import axios from 'axios'; // To fetch data from the backend
 
 function Homepage() {

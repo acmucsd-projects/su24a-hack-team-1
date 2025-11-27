@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Cropper from 'react-easy-crop';
 import 'react-easy-crop/react-easy-crop.css';
 import './newpost.css';
-import VerticalNavbar from "../../components/VerticalNavbar";
+import VerticalNavbar from "../../components/VerticalBar/VerticalNavbar";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 

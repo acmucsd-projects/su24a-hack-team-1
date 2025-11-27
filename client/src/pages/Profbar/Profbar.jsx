@@ -1,5 +1,5 @@
 import React from "react";
-import ProfVNavBar from "../../components/ProfVNavBar";
+import ProfVNavBar from "../../components/ProfNavbar/ProfVNavBar";
 import "./profbar.css"
 
 

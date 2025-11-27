@@ -1,0 +1,65 @@
+/* About Us Section */
+#about-page {
+    text-align: center;
+    padding: 50px;
+    /* background-color: #f4f4f9; */
+}
+
+#about-page h1 {
+    font-family: "Overused Grotesk";
+    font-size: 4rem;
+    color: #000000;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: #E4DFF3;
+    border-radius: 8px;
+    border: 2px rgb(146, 145, 145) solid;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 340px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.person-image {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    transition: filter 0.4s ease;
+}
+
+.card:hover .person-image {
+    filter: grayscale(0%);
+    cursor: pointer;
+}
+
+.caption {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.caption-name {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    color: #393939;
+    font-weight: 500;
+}
+
+/* 
+#about-us {
+    height: 100vh;
+} */

@@ -30,12 +30,17 @@ html, body {
     height: 250px; /* Slightly taller for additional form fields */
 }
 
+#header-signup{
+    margin-top: -8rem;
+
+}
+
 #header-signup h1 {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    line-height: 1.25;
+    line-height: 1;
     font-size: 6.5vw;
     font-family: "Overused Grotesk Light", sans-serif;
 }
@@ -61,9 +66,10 @@ html, body {
     align-items: center;
     letter-spacing: 2px;
     width: 100%;
-    font-size: 20px;
+    font-size: 1rem;
     text-transform: uppercase;
-    font-family: "Overused Grotesk Light", sans-serif;
+    font-family: "Overused Grotesk Light";
+    font-weight: 400;
 }
 
 .bttns-signup {
