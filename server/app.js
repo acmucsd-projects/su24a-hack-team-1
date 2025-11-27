@@ -3,21 +3,24 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const mangoose = require('mongoose');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const dotenv = require("dotenv");
+const jwt = require('jsonwebtoken');
+const multer = require('multer');
 dotenv.config();
 const PORT = process.env.PORT || 4000;
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const homeRouter = require('./routes/home');
 const loginRouter = require('./routes/login');
-const notificationRouter = require('./routes/notification');
+const uploadRouter = require('./routes/upload');
+const profileRouter = require('./routes/profile');
+const postRouter = require('./routes/post');
 const cors = require('cors');
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,11 +32,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/home', homeRouter);
-app.use('/login', loginRouter);
-app.use('/notification', notificationRouter);
+// app.use('/', indexRouter);
+app.use('/upload', uploadRouter);
+// app.use('/home', homeRouter);
+app.use('/api', loginRouter);
+app.use('/profile', profileRouter);
+app.use('/posts', postRouter);
+// app.use('/notification', notificationRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -41,7 +46,7 @@ app.use(function(req, res, next) {
 });
 
 // Connect to MongoDB
-mangoose.connect(process.env.DATABASE_URL)
+mongoose.connect(process.env.DATABASE_URL)
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 

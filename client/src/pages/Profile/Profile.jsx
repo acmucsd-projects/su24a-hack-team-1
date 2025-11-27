@@ -1,148 +1,143 @@
-import React, { useState } from 'react';
-import ProfVNavbar from '../../components/ProfVNavBar';
+import React, { useState, useEffect } from 'react';
 import './profile.css';
+import { useNavigate } from 'react-router-dom';
+import VerticalNavbar from "../../components/VerticalNavbar";
+import axios from 'axios';
 
-function Profile() {
-  const [formData, setFormData] = useState({
-    name: '',
-    location: '',
-    school: '',
-    bio: '',
-    website: '',
-    resume: null,
-    profilePic: null, // Add profilePic to the form data
-  });
+const Postings = () => {
+  const navigate = useNavigate();
+  const [profileData, setProfileData] = useState(null); // State for profile data
+  const [selectedImage, setSelectedImage] = useState(null); // State to store selected image
+  const [currentIndex, setCurrentIndex] = useState(null); // State to store the current index for navigation
+  const [userPosts, setUserPosts] = useState([]);
 
-  const [profilePicPreview, setProfilePicPreview] = useState(null); // Store the preview URL
+  // Fetch user profile data from the backend
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        // Retrieve the JWT token from localStorage or sessionStorage
+        const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
+        
+        const profileResponse = await axios.get('http://localhost:4000/profile', {
+          headers: {
+            'Authorization': token, // Send the token in the Authorization header
+          },
+        });
+        setProfileData(profileResponse.data);
 
-  const handleChange = (e) => {
-    const { name, value, files } = e.target;
+        const postsResponse = await axios.get('http://localhost:4000/posts/myposts', {
+            headers: {
+              'Authorization': token, // Send the token in the Authorization header
+            },
+          });
+          setUserPosts(postsResponse.data);
+      } catch (error) {
+        console.error('Error fetching profile data:', error);
+      }
+    };
 
-    if (name === 'profilePic') {
-      const file = files[0];
-      setFormData({
-        ...formData, //keeps old data
-        [name]: file, //updates by adding new pic file in formData
-      });
-      setProfilePicPreview(URL.createObjectURL(file)); // Create a preview URL
-    } else {
-      setFormData({
-        ...formData,
-        [name]: files ? files[0] : value,
-      });
-    }
+    fetchProfile();
+  }, []);
+
+  const handleClick = () => {
+    navigate('/Upload'); // Navigate to the Edit Profile page
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Submitted data:', formData);
+  const openModal = (index) => {
+    setSelectedImage(profileData.galleryImages[index]);
+    setCurrentIndex(index);
   };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setCurrentIndex(null);
+  };
+
+  const goToNext = () => {
+    const nextIndex = (currentIndex + 1) % profileData.galleryImages.length;
+    setCurrentIndex(nextIndex);
+    setSelectedImage(profileData.galleryImages[nextIndex]);
+  };
+
+  const goToPrev = () => {
+    const prevIndex = (currentIndex - 1 + profileData.galleryImages.length) % profileData.galleryImages.length;
+    setCurrentIndex(prevIndex);
+    setSelectedImage(profileData.galleryImages[prevIndex]);
+  };
+
+  if (!profileData) {
+    return <div>Loading profile...</div>; // Show loading while fetching data
+  }
 
   return (
-    <>
-      <ProfVNavbar />
-      <div id="form-container">
-        <div className="profile-form-container">
-            <h1 className='profile-h1'>Your Profile</h1>
-            <form className="profile-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label htmlFor="name">Full Name:</label>
-                <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter your full name"
-                required
-                />
-            </div>
+    <div>
+      <VerticalNavbar />
 
-            <div className="form-group">
-                <label htmlFor="location">Location:</label>
-                <input
-                type="text"
-                id="location"
-                name="location"
-                value={formData.location}
-                onChange={handleChange}
-                placeholder="Enter your location"
-                required
-                />
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="school">School:</label>
-                <input
-                type="text"
-                id="school"
-                name="school"
-                value={formData.school}
-                onChange={handleChange}
-                placeholder="Enter your school"
-                required
-                />
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="bio">Bio/Interests:</label>
-                <textarea
-                id="bio"
-                name="bio"
-                value={formData.bio}
-                onChange={handleChange}
-                placeholder="Tell us a little about yourself"
-                required
-                ></textarea>
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="website">Website:</label>
-                <input
-                type="url"
-                id="website"
-                name="website"
-                value={formData.website}
-                onChange={handleChange}
-                placeholder="Enter your website URL"
-                />
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="profilePic">Upload Profile Picture:</label>
-                <input
-                type="file"
-                id="profilePic"
-                name="profilePic"
-                accept="image/*"
-                onChange={handleChange}
-                />
-            </div>
-
-            {/* Display Profile Picture Preview */}
-            {profilePicPreview && (
-                <div className="profile-pic-preview">
-                <img src={profilePicPreview} alt="Profile Preview" style={{ width: '150px', height: '150px', borderRadius: '50%' }} />
-                </div>
+      <header className="postings-header">
+        <div className="profile-info">
+          {/* Display the profile picture */}
+          <div className="profile-pic-holder">
+            {profileData.profilePic ? (
+              <img src={`http://localhost:4000/uploads/${profileData.profilePic}`} alt="Profile" />
+            ) : (
+              <div className="placeholder-pic">No Image</div>
             )}
+          </div>
 
-            <div className="form-group">
-                <label htmlFor="resume">Upload Resume:</label>
-                <input
-                type="file"
-                id="resume"
-                name="resume"
-                onChange={handleChange}
-                required
-                />
+          {/* Display Name and Location */}
+          <h2>{profileData.name} - {profileData.location}</h2>
+        </div>
+
+        <div className="bttns">
+          <button id="btn-edit-pf" onClick={handleClick}>Edit Profile</button>
+        </div>
+      </header>
+
+      <a href={profileData.website} className="website-link" target="_blank" rel="noopener noreferrer">
+        {profileData.website || 'www.example.com'}
+      </a>
+      <p className="bio">{profileData.bio || 'This is a short bio placeholder. Add more text about yourself here.'}</p>
+
+      <header className="line"></header>
+
+      <div className="profile-container">
+        {/* Gallery images */}
+        <div className="gallery">
+          {profileData.galleryImages && profileData.galleryImages.map((image, index) => (
+            <div key={index} onClick={() => openModal(index)}>
+              {image ? (
+                <img src={image} alt={`Gallery item ${index}`} />
+              ) : (
+                <div className="placeholder">+</div> // Placeholder content
+              )}
             </div>
-
-            <button type="submit" className="profile-submit-btn">Submit</button>
-            </form>
+          ))}
         </div>
       </div>
-    </>
-  );
-}
 
-export default Profile;
+      {/* My Posts Section */}
+      {/* <div className="my-posts">
+        <h2>My Posts</h2>
+        {userPosts.length > 0 ? (
+          <div className="post-grid">
+            {userPosts.map((post) => (
+              <div key={post._id} className="post-item">
+                <h3>{post.taskName}</h3>
+                {post.image && (
+                  <img src={`http://localhost:4000/uploads/${post.image}`} alt={post.taskName} className="post-image" />
+                )}
+                <p>{post.taskDescription}</p>
+                <p><strong>Quota:</strong> {post.quota}</p>
+                <p><strong>Deadline:</strong> {new Date(post.deadline).toLocaleDateString()}</p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p>You have no posts yet.</p>
+        )}
+      </div> */}
+    </div>
+  );
+};
+
+export default Postings;

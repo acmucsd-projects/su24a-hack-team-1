@@ -9,7 +9,7 @@ const Notifbar = ({ isOpen, onClose }) => {
         <FaTimes size={20} color="#fff" />
       </button>
       <div className="notifbar-content">
-        <h2>Notifications</h2>
+        <h2>Saved</h2>
         {/* Add your notifications content here */}
       </div>
     </div>
