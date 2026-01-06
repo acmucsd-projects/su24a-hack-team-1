@@ -14,7 +14,7 @@ function Homepage() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/posts'); // Adjust the URL as needed
+        const response = await axios.get('/api/posts');
         setPosts(response.data); // Set posts data
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -44,7 +44,7 @@ function Homepage() {
     try {
       // Call the backend API to save the post
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:4000/posts/save', { postId }, {
+      await axios.post('/api/posts/save', { postId }, {
         headers: {
           Authorization: `Bearer ${token}`, // Assuming you are storing the JWT token in localStorage
         }
@@ -79,7 +79,7 @@ function Homepage() {
                 <strong>@{post.taskName}</strong>
               </div>
               <img
-                src={`http://localhost:4000/uploads/${post.croppedImage}`} // Assuming post.image contains the filename
+                src={post.croppedImage} // Image URL from Vercel Blob storage
                 alt="Post Image"
                 className="post-image"
               />
@@ -98,7 +98,7 @@ function Homepage() {
           <div className="modal-content">
             <div className="modal-left">
               <img
-                src={`http://localhost:4000/uploads/${selectedPost.croppedImage}`}
+                src={selectedPost.croppedImage}
                 alt="Post Image"
                 className="post-image"
               />

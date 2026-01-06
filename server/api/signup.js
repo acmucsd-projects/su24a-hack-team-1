@@ -22,22 +22,27 @@ export default async (req, res) => {
     await connectDB();
     const { email, password } = req.body;
 
-    // Find user by email
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: 'User not found' });
+    // Check if the user already exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Compare the password
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) {
-      return res.status(400).json({ message: 'Invalid credentials' });
-    }
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create JWT token
-    const token = jwt.sign({ email: user.email, id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    // Create a new user
+    const newUser = new User({
+      email,
+      password: hashedPassword
+    });
 
-    res.status(200).json({ token });
+    await newUser.save();
+
+    // Generate JWT Token
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+    res.status(201).json({ token });
   } catch (error) {
     console.error('Error:', error);
     return res.status(500).json({ error: 'Internal server error' });

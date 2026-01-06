@@ -18,14 +18,14 @@ const Postings = () => {
         // Retrieve the JWT token from localStorage or sessionStorage
         const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
         
-        const profileResponse = await axios.get('http://localhost:4000/profile', {
+        const profileResponse = await axios.get('/api/profile', {
           headers: {
             'Authorization': token, // Send the token in the Authorization header
           },
         });
         setProfileData(profileResponse.data);
 
-        const postsResponse = await axios.get('http://localhost:4000/posts/myposts', {
+        const postsResponse = await axios.get('/api/posts/myposts', {
             headers: {
               'Authorization': token, // Send the token in the Authorization header
             },
@@ -78,7 +78,7 @@ const Postings = () => {
           {/* Display the profile picture */}
           <div className="profile-pic-holder">
             {profileData.profilePic ? (
-              <img src={`http://localhost:4000/uploads/${profileData.profilePic}`} alt="Profile" />
+              <img src={profileData.profilePic} alt="Profile" />
             ) : (
               <div className="placeholder-pic">No Image</div>
             )}
@@ -124,7 +124,7 @@ const Postings = () => {
               <div key={post._id} className="post-item">
                 <h3>{post.taskName}</h3>
                 {post.image && (
-                  <img src={`http://localhost:4000/uploads/${post.image}`} alt={post.taskName} className="post-image" />
+                  <img src={post.image || post.croppedImage} alt={post.taskName} className="post-image" />
                 )}
                 <p>{post.taskDescription}</p>
                 <p><strong>Quota:</strong> {post.quota}</p>

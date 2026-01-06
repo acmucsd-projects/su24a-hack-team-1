@@ -1,35 +1,16 @@
 {
   "version": 2,
-  "builds": [
+  "buildCommand": "cd client && pnpm install && pnpm build",
+  "outputDirectory": "client/dist",
+  "installCommand": "pnpm install",
+  "rewrites": [
     {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/profile",
-      "dest": "/api/profile"
-    },
-    {
-      "src": "/posts/(.*)",
-      "dest": "/api/posts"
-    },
-    {
-      "src": "/upload",
-      "dest": "/api/upload"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/client/$1"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
-

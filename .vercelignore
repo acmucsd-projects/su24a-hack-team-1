@@ -1,0 +1,11 @@
+server/app.js
+server/bin/
+server/routes/
+server/controllers/
+server/views/
+server/public/
+server/uploads/
+node_modules/
+*.log
+.DS_Store
+

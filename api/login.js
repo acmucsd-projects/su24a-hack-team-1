@@ -4,7 +4,6 @@ import jwt from 'jsonwebtoken';
 import User from '../server/models/User.js';
 
 export default async (req, res) => {
-  // CORS headers
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
@@ -22,19 +21,16 @@ export default async (req, res) => {
     await connectDB();
     const { email, password } = req.body;
 
-    // Find user by email
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({ message: 'User not found' });
     }
 
-    // Compare the password
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    // Create JWT token
     const token = jwt.sign({ email: user.email, id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     res.status(200).json({ token });

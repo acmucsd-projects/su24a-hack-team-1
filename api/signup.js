@@ -4,7 +4,6 @@ import jwt from 'jsonwebtoken';
 import User from '../server/models/User.js';
 
 export default async (req, res) => {
-  // CORS headers
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
@@ -22,22 +21,18 @@ export default async (req, res) => {
     await connectDB();
     const { email, password } = req.body;
 
-    // Find user by email
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: 'User not found' });
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Compare the password
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) {
-      return res.status(400).json({ message: 'Invalid credentials' });
-    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User({ email, password: hashedPassword });
+    await newUser.save();
 
-    // Create JWT token
-    const token = jwt.sign({ email: user.email, id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-    res.status(200).json({ token });
+    res.status(201).json({ token });
   } catch (error) {
     console.error('Error:', error);
     return res.status(500).json({ error: 'Internal server error' });

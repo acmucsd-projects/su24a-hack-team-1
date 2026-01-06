@@ -13,7 +13,7 @@ function Signup() {
     e.preventDefault();
     try {
       console.log('email:', email, 'password:', password);
-      const response = await axios.post('http://localhost:4000/api/signup', { email, password });
+      const response = await axios.post('/api/signup', { email, password });
       console.log(response.data);
       if (response.status === 201) {
         // Save user email or any other necessary data

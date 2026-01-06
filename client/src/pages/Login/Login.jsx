@@ -22,7 +22,7 @@ function Login() {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:4000/api/login', { email, password });
+      const response = await axios.post('/api/login', { email, password });
       if (response.status === 200) {
         const userId = response.data.userId;
         const token = response.data.token;

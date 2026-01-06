@@ -97,7 +97,7 @@ const NewPost = () => {
 
     try {
       const token = localStorage.getItem('token'); // Assuming you store JWT in localStorage
-      const response = await axios.post('http://localhost:4000/posts', formDataObj, {
+      const response = await axios.post('/api/posts', formDataObj, {
         headers: {
           'Authorization': token,
           'Content-Type': 'multipart/form-data',

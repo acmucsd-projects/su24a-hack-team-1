@@ -26,7 +26,7 @@ function Profile() {
         // Retrieve the token from localStorage
         const token = localStorage.getItem('token');
 
-        const response = await axios.get('http://localhost:4000/profile', {
+        const response = await axios.get('/api/profile', {
           headers: {
             'Authorization': token,
           },
@@ -44,7 +44,7 @@ function Profile() {
         });
 
         if (response.data.profilePic) {
-          setProfilePicPreview(`http://localhost:4000/uploads/${response.data.profilePic}`);
+          setProfilePicPreview(response.data.profilePic);
         }
         setIsEditMode(true);
       } catch (error) {
@@ -89,7 +89,7 @@ function Profile() {
     const token = localStorage.getItem('token');
     const requestType = isEditMode ? axios.put : axios.post;
     // Make a POST request with FormData and send the token in headers
-    requestType('http://localhost:4000/upload', formDataObj, {
+    requestType('/api/upload', formDataObj, {
       headers: {
         'Content-Type': 'multipart/form-data', 
         'Authorization': token, // Send the JWT token in the Authorization header
