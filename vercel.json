@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/profile",
+      "dest": "/api/profile"
+    },
+    {
+      "src": "/posts/(.*)",
+      "dest": "/api/posts"
+    },
+    {
+      "src": "/upload",
+      "dest": "/api/upload"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/client/$1"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
+

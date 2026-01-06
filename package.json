@@ -5,8 +5,9 @@
   "main": "index.js",
 "scripts": {
   "client": "pnpm --filter ./client dev",
-  "server": "pnpm --filter ./server start",
-  "dev": "concurrently \"pnpm run server\" \"pnpm run client\""
+  "server": "pnpm --filter ./server dev",
+  "dev": "concurrently \"pnpm run server\" \"pnpm run client\"",
+  "build": "pnpm --filter ./client build"
 },
 
   "repository": {
