@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { HiArrowRight } from 'react-icons/hi';
 import { HiMiniHome } from "react-icons/hi2";
 import { FaBell, FaUserCircle, FaHeart} from "react-icons/fa";
 import { MdOutlinePostAdd } from "react-icons/md";

@@ -1,13 +1,26 @@
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '');
-  return {
-    define: {
-      'process.env': env,
-    },
+export default defineConfig({
   plugins: [react()],
-  }
+  // Vite automatically exposes environment variables prefixed with VITE_
+  // Access them in your code using: import.meta.env.VITE_API_URL
+  // This is more secure than exposing all process.env variables
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split react-icons into its own chunk (it's a large library)
+          'react-icons': ['react-icons/hi', 'react-icons/hi2', 'react-icons/fa', 'react-icons/md'],
+          // Split vendor libraries
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          // Split animation libraries
+          'animation-vendor': ['framer-motion', 'gsap'],
+        },
+      },
+    },
+    // Increase chunk size warning limit to 1000 KB (optional)
+    chunkSizeWarningLimit: 1000,
+  },
 })
